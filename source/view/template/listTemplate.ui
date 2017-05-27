@@ -1,0 +1,26 @@
+{
+	"RootView":{
+		"border":"00000000,2,[0,0,0,0]",
+		"width":"720",
+		"id":"ALayout_1",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"width":"168",
+				"x":"61",
+				"y":"21",
+				"id":"do_Label_title",
+				"type":"do_Label",
+				"height":"40"
+			},
+			{
+				"visible":"false",
+				"x":"253",
+				"y":"29",
+				"id":"do_Label_id",
+				"type":"do_Label",
+				"height":"24"
+			}
+		]
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"RootView":{
+		"width":"720",
+		"id":"ALayout_1",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"border":"ffffffff,2,[0,0,0,0]",
+				"x":"85",
+				"y":"135",
+				"id":"do_Button_1",
+				"text":"获取数据",
+				"type":"do_Button"
+			},
+			{
+				"border":"ffffffff,2,[0,0,0,0]",
+				"x":"247",
+				"y":"134",
+				"id":"do_Button_2",
+				"type":"do_Button"
+			}
+		],
+		"height":"1280"
+	}
+}
