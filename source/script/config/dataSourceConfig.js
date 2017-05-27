@@ -2,6 +2,10 @@ module.exports.getMap = function () {
 	return sqlStatement;
 };
 
+module.exports.sqlMap = function () {
+	return sqlMap
+};
+
 
 
 var checkTable = "SELECT COUNT(*) AS num FROM sqlite_master WHERE type='table' AND name= ?";
@@ -30,4 +34,39 @@ var sqlStatement = {
 	selectOne: selectOne,
 	selectParam: selectParam,
 	syncSelect: syncSelect
+};
+
+var sqlMap = {
+	createCodeTable: {
+		sql: createCodeTable,
+		num: 0
+	},
+	checkTable: {
+		sql: checkTable,
+		num: 1
+	},
+	insert: {
+		sql: insert,
+		num: 8
+	},
+	update: {
+		sql: update,
+		num: 8
+	},
+	del: {
+		sql: del,
+		num: 1
+	},
+	selectOne: {
+		sql: selectOne,
+		num: 1
+	},
+	selectParam: {
+		sql: selectParam,
+		num: 0
+	},
+	syncSelect: {
+		sql: syncSelect,
+		num: 0
+	}
 };
