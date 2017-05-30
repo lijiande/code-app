@@ -21,7 +21,7 @@ pageUi.init();
 confirm.on("touch",function(){
 	var text = password.text;
 	if(text == '123'){
-//		dataSource.initData();
+		dataSource.initData();
 		do_App.openPage({
 			source:"source://view/index.ui", 
 			animationType: "fade"		

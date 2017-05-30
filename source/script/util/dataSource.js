@@ -1,7 +1,9 @@
 var d = require("deviceone");
 var common = require("util/common");
 var sqlState = require("config/dataSourceConfig");
+//var dataTool = require("util/dataSource");
 module.exports.initData = initCodeTable;
+module.exports.save = save;
 
 var main_data = d.mm("do_SQLite", "main");
 var do_Storage = d.sm("do_Storage");
@@ -36,18 +38,32 @@ function checkTable(tableName) {
 	return result;
 }
 
-
+/**
+ * 新增数据
+ * @param saveArray 0-name,1-key,2-value,3-remark
+ * @returns
+ */
 function save(saveArray) {
 	if (!saveArray instanceof Array) {
 		d.print("检查参数", "saveData")
 		return false
 	}
 	var sqlMap = sqlState.getMap().insert;
-	var array = Array.of(saveArray)
+	//id,name,name_index,key_word,value_word,star,remark,sign
+	var array = [];
+//	array.push(dataTool.getUUID());
+//	array.push(saveArray[0]);
+//	array.push("A");
+//	array.push(saveArray[1]);
+//	array.push(saveArray[2]);
+//	array.push("1");
+//	array.push(saveArray[3]);
+//	array.push(dataTool.getUUID());
 	if (array.length != sqlMap.num) {
 		d.print("检查参数", "saveData")
 		return false
 	}
 	var result = main_data.querySync(sqlMap.sql, array)[0].num == 1 ? true : false;
+	common.toast(result);
 	return result;
 }
