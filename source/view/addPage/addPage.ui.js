@@ -28,7 +28,7 @@ button_save.on("touch",function(){
 	data.push(text_value.text);
 	data.push(text_remark.text);
 	dataSource.save(data);
-	common.toast(data);
+//	common.toast(data);
 });
 
 button_visual.on("touch",function(){

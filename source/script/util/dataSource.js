@@ -1,7 +1,7 @@
 var d = require("deviceone");
 var common = require("util/common");
 var sqlState = require("config/dataSourceConfig");
-//var dataTool = require("util/dataSource");
+var dataTool = require("util/dataTool");
 module.exports.initData = initCodeTable;
 module.exports.save = save;
 
@@ -15,7 +15,7 @@ function initCodeTable() {
 	if (checkTable("code")) {
 		return true;
 	}
-	var sql = sqlState.getMap().createCodeTable;
+	var sql = sqlState.sqlMap().createCodeTable.sql;
 
 	var result = main_data.executeSync(sql);
 	if (result) {
@@ -32,7 +32,7 @@ function initCodeTable() {
  * @returns true-存在，false-不存在
  */
 function checkTable(tableName) {
-	var sql = sqlState.getMap().checkTable;
+	var sql = sqlState.sqlMap().checkTable.sql;
 	var result = main_data.querySync(sql, [tableName])[0].num == 1 ? true : false;
 	d.print(result, "checkTable");
 	return result;
@@ -48,22 +48,24 @@ function save(saveArray) {
 		d.print("检查参数", "saveData")
 		return false
 	}
-	var sqlMap = sqlState.getMap().insert;
+	var sqlMap = sqlState.sqlMap().insert;
 	//id,name,name_index,key_word,value_word,star,remark,sign
 	var array = [];
-//	array.push(dataTool.getUUID());
-//	array.push(saveArray[0]);
-//	array.push("A");
-//	array.push(saveArray[1]);
-//	array.push(saveArray[2]);
-//	array.push("1");
-//	array.push(saveArray[3]);
-//	array.push(dataTool.getUUID());
+	array.push(dataTool.getUUID());
+	array.push(saveArray[0]);
+	array.push("A");
+	array.push(saveArray[1]);
+	array.push(saveArray[2]);
+	array.push("1");
+	array.push(saveArray[3]);
+	array.push(dataTool.getUUID());
 	if (array.length != sqlMap.num) {
 		d.print("检查参数", "saveData")
 		return false
 	}
-	var result = main_data.querySync(sqlMap.sql, array)[0].num == 1 ? true : false;
-	common.toast(result);
-	return result;
+	d.print(array,"插入的数组");
+	var result = main_data.executeSync(sqlMap.sql, array);
+	d.print(result,"insert")
+	common.toast("保存成功")
+	return result; 
 }
