@@ -10,7 +10,7 @@
 				"type":"do_ALayout",
 				"views":[
 					{
-						"templates":"source://view/template/listTemplate.ui",
+						"templates":"source://view/template/listIndexTemplate.ui,source://view/template/listTemplate.ui",
 						"width":"720",
 						"id":"do_IndexListView_dataList",
 						"type":"do_IndexListView",

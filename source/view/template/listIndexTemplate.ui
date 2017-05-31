@@ -1,0 +1,18 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"720",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"x":"11",
+				"y":"13",
+				"id":"do_Label_index",
+				"type":"do_Label",
+				"height":"32"
+			}
+		],
+		"height":"52"
+	}
+}

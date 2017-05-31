@@ -4,12 +4,16 @@ var sqlState = require("config/dataSourceConfig");
 var dataTool = require("util/dataTool");
 module.exports.initData = initCodeTable;
 module.exports.save = save;
+module.exports.getDataList = getDataList;
 
 var main_data = d.mm("do_SQLite", "main");
 var do_Storage = d.sm("do_Storage");
 main_data.open("data://code_main.db");
 
-
+/**
+ * 在第一次使用时初始化表格
+ * @returns
+ */
 function initCodeTable() {
 	d.print("start init method", "initCodeTable");
 	if (checkTable("code")) {
@@ -68,4 +72,15 @@ function save(saveArray) {
 	d.print(result,"insert")
 	common.toast("保存成功")
 	return result; 
+}
+
+
+function getDataList(){
+	var array = main_data.querySync(sqlState.sqlMap().selectParam.sql)
+	var obj = new obj();
+	for(var i = 0;i<array.length;i++){
+		obj.
+	}
+	d.print(array,"select");
+	
 }
