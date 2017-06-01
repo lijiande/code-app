@@ -1,13 +1,19 @@
-var constants = require("config/constants")
+var constants = require("config/constants");
+
+
 module.exports.encodeKey = encodeKey;
 module.exports.getUUID = generateUUID;
+module.exports.getDataList = generateDataList;
 
 function encodeKey(str) {
     return "hello";
 }
 
 
-
+/**
+ * 生成UUID
+ * @returns
+ */
 function generateUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         var r = Math.random() * 16 | 0,
@@ -17,23 +23,24 @@ function generateUUID() {
 }
 
 
-function generateDataList(dataTemp) {
-    if (!dataTemp instanceof Array) {
+function generateDataList(source) {
+    if (!source instanceof Array) {
         return
     }
-    var indexArray = constants.indexCharArray;
+    var indexs = [];
+    var ss = [];
+    var inarry = constants.conMap().indexCharArray;
     var param = {};
     var result = {};
     var coin = [{
         template: 0,
         index: '*'
-    }];
-    indexArray.forEach(x => {
+    }]
+    inarry.forEach(function (x) {
         coin[0].index = x
         param[x] = coin
     })
-
-    dataTemp.forEach(x => {
+    source.forEach(function (x) {
         param[x.name_index].push({
             'template': '1',
             'title': x.name,
@@ -41,7 +48,7 @@ function generateDataList(dataTemp) {
         })
     })
 
-    indexArray.forEach(x => {
+    inarry.forEach(function (x) {
         if (param[x].length > 1) {
             result[x] = param[x]
         }

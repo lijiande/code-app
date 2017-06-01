@@ -77,10 +77,6 @@ function save(saveArray) {
 
 function getDataList(){
 	var array = main_data.querySync(sqlState.sqlMap().selectParam.sql)
-	var obj = new obj();
-	for(var i = 0;i<array.length;i++){
-		obj.
-	}
 	d.print(array,"select");
 	
 }

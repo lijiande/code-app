@@ -1,5 +1,3 @@
-
-
 module.exports.sqlMap = function () {
 	return sqlMap
 };
