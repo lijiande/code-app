@@ -1,5 +1,5 @@
-var root=ui("$");
+var root = ui("$");
 root.setMapping({
-	"do_Label_title.text":"title",
-	"do_Label_id.text":"id"
+	"do_Label_title.text": "name",
+	"do_Label_id.text": "id"
 })
