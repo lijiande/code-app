@@ -10,11 +10,26 @@
 				"type":"do_ALayout",
 				"views":[
 					{
+						"bgColor":"EEEEEEFF",
 						"templates":"source://view/template/listIndexTemplate.ui,source://view/template/listTemplate.ui",
 						"width":"720",
 						"id":"do_IndexListView_dataList",
 						"type":"do_IndexListView",
-						"height":"1060"
+						"selectedColor":"0080FFFF",
+						"height":"1055"
+					},
+					{
+						"border":"3F51B5FF,0,[51,51,51,51]",
+						"bgColor":"3F51B5FF",
+						"iconName":"code",
+						"x":"569",
+						"iconColor":"FFFFFFFF",
+						"y":"932",
+						"iconSize":"30",
+						"iconCode":"e641",
+						"id":"do_IconFont_1",
+						"type":"do_IconFont",
+						"height":"100"
 					}
 				],
 				"height":"1060"

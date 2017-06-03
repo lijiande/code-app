@@ -10,60 +10,19 @@
 				"y":"120",
 				"id":"do_ViewShower_main",
 				"type":"do_ViewShower",
-				"height":"1060"
+				"height":"1055"
 			},
 			{
-				"border":"000000ff,1,[0,0,0,0]",
-				"bgColor":"008080FF",
-				"width":"360",
-				"y":"1180",
-				"id":"do_ALayout_1",
-				"type":"do_ALayout",
-				"views":[
-					{
-						"textAlign":"center",
-						"x":"144",
-						"y":"12",
-						"fontSize":"30",
-						"id":"do_Label_2",
-						"text":"列表",
-						"type":"do_Label"
-					}
-				],
-				"height":"100"
-			},
-			{
-				"border":"000000ff,1,[0,0,0,0]",
-				"bgColor":"008080FF",
-				"x":"360",
-				"width":"360",
-				"y":"1180",
-				"id":"do_ALayout_2",
-				"type":"do_ALayout",
-				"views":[
-					{
-						"textAlign":"center",
-						"x":"128",
-						"y":"14",
-						"fontSize":"30",
-						"id":"do_Label_3",
-						"text":"更多",
-						"type":"do_Label"
-					}
-				],
-				"height":"100"
-			},
-			{
-				"bgColor":"000000FF",
+				"bgColor":"3F51B5FF",
 				"width":"720",
 				"id":"do_ALayout_3",
 				"type":"do_ALayout",
 				"views":[
 					{
-						"bgColor":"000000FF",
+						"bgColor":"00000000",
 						"textAlign":"center",
-						"width":"722",
-						"y":"54",
+						"width":"720",
+						"y":"49",
 						"fontSize":"40",
 						"id":"do_Label_title",
 						"text":"列 表",
@@ -72,19 +31,88 @@
 						"height":"54"
 					},
 					{
-						"x":"610",
-						"y":"50",
-						"fontSize":"50",
-						"id":"do_Button_add",
-						"text":"+",
-						"type":"do_Button",
-						"fontStyle":"bold",
-						"textFlag":"strikethrough",
-						"fontColor":"FFFFFFFF",
-						"height":"68"
+						"iconName":"code",
+						"x":"632",
+						"width":"76",
+						"iconColor":"FFFFFFFF",
+						"y":"40",
+						"iconSize":"35",
+						"iconCode":"e651",
+						"id":"do_IconFont_top",
+						"type":"do_IconFont",
+						"height":"64"
 					}
 				],
 				"height":"120"
+			},
+			{
+				"border":"EEEEEEFF,2,[0,0,0,0]",
+				"width":"720",
+				"y":"1175",
+				"id":"do_ALayout_button",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"bgColor":"FFFFFFFF",
+						"width":"360",
+						"y":"2",
+						"id":"do_ALayout_1",
+						"type":"do_ALayout",
+						"views":[
+							{
+								"textAlign":"center",
+								"x":"130",
+								"y":"65",
+								"fontSize":"25",
+								"id":"do_Label_2",
+								"text":"列表",
+								"type":"do_Label",
+								"height":"30"
+							},
+							{
+								"iconName":"code",
+								"x":"130",
+								"iconSize":"45",
+								"iconCode":"e64f",
+								"id":"do_IconFont_3",
+								"type":"do_IconFont",
+								"height":"65"
+							}
+						],
+						"height":"103"
+					},
+					{
+						"bgColor":"FFFFFFFF",
+						"width":"360",
+						"x":"360",
+						"y":"2",
+						"id":"do_ALayout_2",
+						"type":"do_ALayout",
+						"views":[
+							{
+								"textAlign":"center",
+								"x":"130",
+								"y":"65",
+								"fontSize":"25",
+								"id":"do_Label_3",
+								"text":"更多",
+								"type":"do_Label",
+								"height":"30"
+							},
+							{
+								"iconName":"code",
+								"x":"130",
+								"iconSize":"45",
+								"iconCode":"e659",
+								"id":"do_IconFont_4",
+								"type":"do_IconFont",
+								"height":"65"
+							}
+						],
+						"height":"103"
+					}
+				],
+				"height":"105"
 			}
 		],
 		"height":"1280"

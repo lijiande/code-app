@@ -1,6 +1,7 @@
 {
 	"RootView":{
 		"border":"00000000,2,[0,0,0,0]",
+		"bgColor":"FAFAFAFF",
 		"width":"720",
 		"id":"ALayout_1",
 		"type":"do_ALayout",
@@ -8,7 +9,8 @@
 			{
 				"width":"168",
 				"x":"61",
-				"y":"21",
+				"y":"40",
+				"fontSize":"35",
 				"id":"do_Label_title",
 				"type":"do_Label",
 				"height":"40"
@@ -21,6 +23,7 @@
 				"type":"do_Label",
 				"height":"24"
 			}
-		]
+		],
+		"height":"120"
 	}
 }

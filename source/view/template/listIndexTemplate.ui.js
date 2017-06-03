@@ -6,5 +6,5 @@
  */
 var root = ui("$");
 root.setMapping({
-	"do_Label_index.text": "title"
+	"do_Label_index.text": "index"
 })
