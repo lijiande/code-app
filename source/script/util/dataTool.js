@@ -1,9 +1,9 @@
 var constants = require("config/constants");
-
+var common = require("util/common");
 
 module.exports.encodeKey = encodeKey;
 module.exports.getUUID = generateUUID;
-module.exports.getDataList = generateDataList;
+module.exports.generateDataList = generateDataList;
 
 function encodeKey(str) {
     return "hello";
@@ -27,30 +27,28 @@ function generateDataList(source) {
     if (!source instanceof Array) {
         return
     }
-    var indexs = [];
-    var ss = [];
-    var inarry = constants.conMap().indexCharArray;
+    var indexs = constants.conMap().indexCharArray;
     var param = {};
     var result = {};
-    var coin = [{
-        template: 0,
-        index: '*'
-    }]
-    inarry.forEach(function (x) {
-        coin[0].index = x
-        param[x] = coin
+    common.toast(indexs);
+    indexs.forEach(function (x) {
+        param[x] = [{
+            template: 0,
+            index: x
+        }];
     })
     source.forEach(function (x) {
         param[x.name_index].push({
             'template': '1',
-            'title': x.name,
+            'name': x.name,
             'id': x.id
         })
     })
 
-    inarry.forEach(function (x) {
+    indexs.forEach(function (x) {
         if (param[x].length > 1) {
-            result[x] = param[x]
+            result[x] = param[x];
         }
     })
+    return result;
 }

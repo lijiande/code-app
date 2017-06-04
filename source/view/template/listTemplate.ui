@@ -1,7 +1,7 @@
 {
 	"RootView":{
 		"border":"00000000,2,[0,0,0,0]",
-		"bgColor":"FAFAFAFF",
+		"bgColor":"00000000",
 		"width":"720",
 		"id":"ALayout_1",
 		"type":"do_ALayout",
@@ -9,11 +9,11 @@
 			{
 				"width":"168",
 				"x":"61",
-				"y":"40",
+				"y":"35",
 				"fontSize":"35",
 				"id":"do_Label_title",
 				"type":"do_Label",
-				"height":"40"
+				"height":"50"
 			},
 			{
 				"visible":"false",
@@ -22,6 +22,14 @@
 				"id":"do_Label_id",
 				"type":"do_Label",
 				"height":"24"
+			},
+			{
+				"width":"720",
+				"y":"100",
+				"id":"do_Canvas_line",
+				"type":"do_Canvas",
+				"strokeColor":"D8D8D8FF",
+				"height":"20"
 			}
 		],
 		"height":"120"

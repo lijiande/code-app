@@ -7,10 +7,10 @@
 		"views":[
 			{
 				"width":"720",
-				"y":"120",
+				"y":"100",
 				"id":"do_ViewShower_main",
 				"type":"do_ViewShower",
-				"height":"1055"
+				"height":"1075"
 			},
 			{
 				"bgColor":"3F51B5FF",
@@ -22,28 +22,28 @@
 						"bgColor":"00000000",
 						"textAlign":"center",
 						"width":"720",
-						"y":"49",
+						"y":"23",
 						"fontSize":"40",
 						"id":"do_Label_title",
-						"text":"列 表",
+						"text":"首 页",
 						"type":"do_Label",
 						"fontColor":"FFFFFFFF",
 						"height":"54"
 					},
 					{
-						"iconName":"code",
-						"x":"632",
-						"width":"76",
+						"iconName":"code_qn",
+						"x":"620",
+						"width":"74",
 						"iconColor":"FFFFFFFF",
-						"y":"40",
-						"iconSize":"35",
-						"iconCode":"e651",
+						"y":"13",
+						"iconSize":"55",
+						"iconCode":"e741",
 						"id":"do_IconFont_top",
 						"type":"do_IconFont",
-						"height":"64"
+						"height":"74"
 					}
 				],
-				"height":"120"
+				"height":"100"
 			},
 			{
 				"border":"EEEEEEFF,2,[0,0,0,0]",
@@ -65,16 +65,16 @@
 								"y":"65",
 								"fontSize":"25",
 								"id":"do_Label_2",
-								"text":"列表",
+								"text":"首页",
 								"type":"do_Label",
 								"height":"30"
 							},
 							{
-								"iconName":"code",
+								"iconName":"code_qn",
 								"x":"130",
 								"iconSize":"45",
-								"iconCode":"e64f",
-								"id":"do_IconFont_3",
+								"iconCode":"e702",
+								"id":"do_IconFont_home",
 								"type":"do_IconFont",
 								"height":"65"
 							}
@@ -95,16 +95,16 @@
 								"y":"65",
 								"fontSize":"25",
 								"id":"do_Label_3",
-								"text":"更多",
+								"text":"我",
 								"type":"do_Label",
 								"height":"30"
 							},
 							{
-								"iconName":"code",
+								"iconName":"code_qn",
 								"x":"130",
 								"iconSize":"45",
-								"iconCode":"e659",
-								"id":"do_IconFont_4",
+								"iconCode":"e718",
+								"id":"do_IconFont_me",
 								"type":"do_IconFont",
 								"height":"65"
 							}

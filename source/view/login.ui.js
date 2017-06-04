@@ -21,7 +21,7 @@ pageUi.init();
 confirm.on("touch",function(){
 	var text = password.text;
 	if(text == '123'){
-		dataSource.initData();
+		dataSource.initDataList();
 		do_App.openPage({
 			source:"source://view/index.ui", 
 			animationType: "fade"		
@@ -30,6 +30,9 @@ confirm.on("touch",function(){
 		common.toast("密码错误");
 	}
 });
+do_Page.on('loaded',function(){
+	dataSource.initCodeTable();
+})
 
 
 

@@ -2,9 +2,18 @@ var d = require("deviceone");
 var common = require("util/common");
 var sqlState = require("config/dataSourceConfig");
 var dataTool = require("util/dataTool");
-module.exports.initData = initCodeTable;
+var do_DataCach = d.sm("do_DataCache");
+
+/**
+ * 对外接口
+ */
+module.exports.initCodeTable = initCodeTable;
 module.exports.save = save;
-module.exports.getDataList = getDataList;
+module.exports.initDataList = initDataList;
+module.exports.getDetail = getDetail;
+module.exports.flushDataList = flushDataList;
+module.exports.update = update;
+
 
 var main_data = d.mm("do_SQLite", "main");
 var do_Storage = d.sm("do_Storage");
@@ -50,14 +59,21 @@ function checkTable(tableName) {
 function save(saveArray) {
 	if (!saveArray instanceof Array) {
 		d.print("检查参数", "saveData")
-		return false
+		return false;
 	}
 	var sqlMap = sqlState.sqlMap().insert;
 	//id,name,name_index,key_word,value_word,star,remark,sign
 	var array = [];
 	array.push(dataTool.getUUID());
 	array.push(saveArray[0]);
-	array.push("A");
+	var char = saveArray[0].charAt(0);
+	var reg = new RegExp('^[a-zA-Z]$');
+	if(reg.test(char)){
+		char = char.toUpperCase();
+	}else{
+		char = '#';
+	}
+	array.push(char);
 	array.push(saveArray[1]);
 	array.push(saveArray[2]);
 	array.push("1");
@@ -67,16 +83,88 @@ function save(saveArray) {
 		d.print("检查参数", "saveData")
 		return false
 	}
-	d.print(array,"插入的数组");
 	var result = main_data.executeSync(sqlMap.sql, array);
 	d.print(result,"insert")
-	common.toast("保存成功")
+	flushDataList();
 	return result; 
 }
 
-
-function getDataList(){
+/**
+ * 
+ * @param saveArray 0-name,1-key,2-value,3-remark,4-id
+ * @param updateArray
+ * @returns
+ */
+function update(updateArray){
+	if (!updateArray instanceof Array) {
+		d.print("检查参数1", "updateData")
+		return false;
+	}
+	var sqlMap = sqlState.sqlMap().update;
+	//name,name_index,key_word,value_word,modify_time,star,remark,sign,id
+	var array = [];
+	array.push(updateArray[0]);
+	var char = updateArray[0].charAt(0);
+	var reg = new RegExp('^[a-zA-Z]$');
+	if(reg.test(char)){
+		char = char.toUpperCase();
+	}else{
+		char = '#';
+	}
+	array.push(char);
+	//key
+	array.push(updateArray[1]);
+	array.push(updateArray[2]);
+	array.push('1');
+	array.push(updateArray[3]);
+	array.push(dataTool.getUUID());
+	array.push(updateArray[4]);
+	if (array.length != sqlMap.num) {
+		d.print("检查参数2", "updateData")
+		return false
+	}
+	var result = main_data.executeSync(sqlMap.sql, array);
+	d.print(result,"insert")
+	flushDataList();
+	return result; 
+}
+/**
+ * 查看详情
+ * @param id
+ * @returns
+ */
+function getDetail(id){
+	var result = main_data.querySync(sqlState.sqlMap().selectOne.sql, [id]);
+	return result;
+}
+/**
+ * 初始化dataList
+ * @returns
+ */
+function initDataList(){
+	var bol = do_DataCach.hasData('listSource');
+	if(bol){
+		return;
+	}
+	common.toast("正在初始化缓存");
+	var dataObj = {};
 	var array = main_data.querySync(sqlState.sqlMap().selectParam.sql)
-	d.print(array,"select");
+	if(array.length === 0){
+		array = {};
+	}else{
+		dataObj = dataTool.generateDataList(array);
+	}
 	
+	var result = do_DataCach.saveData('listSource', dataObj);
+	return result;
+}
+/**
+ * 手动刷新dataList缓存
+ * @returns
+ */
+function flushDataList(){
+	var array = main_data.querySync(sqlState.sqlMap().selectParam.sql)
+	var dataObj = dataTool.generateDataList(array);
+	var result = do_DataCach.saveData('listSource', dataObj);
+	return result;
 }

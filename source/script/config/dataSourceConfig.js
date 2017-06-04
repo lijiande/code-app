@@ -15,9 +15,9 @@ var createCodeTable = "CREATE TABLE IF NOT EXISTS code " +
 	"sign)";
 
 var insert = "INSERT INTO code(id,name,name_index,key_word,value_word,star,remark,sign)VALUES (?,?,?,?,?,?,?,?)";
-var update = "UPDATE code SET name=?,name_index=?,key_word=?,value_word=?,star=?,remark=?,sign=? WHERE id=?";
+var update = "UPDATE code SET name=?,name_index=?,key_word=?,value_word=?,modify_time=datetime('now','localtime'),star=?,remark=?,sign=? WHERE id=?";
 var del = "DELETE FROM code where id = ?";
-var selectOne = "SELECT * FROM code WHERE id = ?";
+var selectOne = "SELECT id,name as name,key_word as key,value_word as value,create_time as createTime,modify_time as modifyTime,remark as remark FROM code WHERE id = ?";
 var selectParam = "SELECT id,name,name_index FROM code ORDER BY name_index";
 var syncSelect = "SELECT id,user_id as userId,name,name_index as nameIndex,key_word as keyWord," +
 	"value_word as valueWord,create_time as createTime,modify_time as modifyTime,star,remark,sign FROM code";
