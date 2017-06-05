@@ -5,19 +5,15 @@
 		"type":"do_ALayout",
 		"views":[
 			{
-				"border":"ffffffff,2,[0,0,0,0]",
-				"x":"85",
-				"y":"135",
-				"id":"do_Button_1",
-				"text":"获取数据",
-				"type":"do_Button"
-			},
-			{
-				"border":"ffffffff,2,[0,0,0,0]",
-				"x":"247",
-				"y":"134",
-				"id":"do_Button_2",
-				"type":"do_Button"
+				"textAlign":"center",
+				"x":"158",
+				"width":"320",
+				"y":"335",
+				"fontSize":"50",
+				"id":"do_Label_1",
+				"text":"。。。",
+				"type":"do_Label",
+				"height":"244"
 			}
 		],
 		"height":"1280"

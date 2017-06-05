@@ -24,7 +24,9 @@ confirm.on("touch",function(){
 		dataSource.initDataList();
 		do_App.openPage({
 			source:"source://view/index.ui", 
-			animationType: "fade"		
+			animationType: "fade",
+			statusBarState : "transparent",
+	        statusBarFgColor : "black"// 修改缺省的状态栏字体颜色，只有white，black二种，这个属性只支持ios
 		});
 	}else {
 		common.toast("密码错误");
