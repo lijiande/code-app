@@ -64,37 +64,6 @@
 		},
 		{
 			"ReturnType_JavaScript":"",
-			"Description":"支持设置状态栏样式(仅支持iOS平台)。当使用do_App组件的openPage方法的statusBarState参数为hide时，没有效果",
-			"Deprecated":false,
-			"Paras":[
-				{
-					"DefaultValue":"white",
-					"Type":"String",
-					"Description":"顶部状态栏字体的前景色，只能为'white'和'black'两种值",
-					"Required":0,
-					"Deprecated":false,
-					"Type_JavaScript":"String",
-					"ID":"fgColor",
-					"Name":"顶部状态栏前景色"
-				},
-				{
-					"DefaultValue":"000000FF",
-					"Type":"String",
-					"Description":"顶部状态栏背景色，默认值为000000FF(黑色),这个参数只有在openPage的参数statusBarState为show的时候才起作用",
-					"Required":0,
-					"Deprecated":false,
-					"Type_JavaScript":"String",
-					"ID":"bgColor",
-					"Name":"顶部状态栏背景色"
-				}
-			],
-			"ID":"setStatusBarStyle",
-			"ReturnType":"",
-			"Name":"设置状态栏样式",
-			"ReturnDesc":""
-		},
-		{
-			"ReturnType_JavaScript":"",
 			"Description":"可通过与openPage动画相反手势关闭页面，并从当前页面传递data给下层页面，仅支持iOS平台",
 			"Deprecated":false,
 			"Paras":[

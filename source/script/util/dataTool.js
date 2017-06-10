@@ -1,8 +1,10 @@
+var d = require("deviceone");
 var constants = require("config/constants");
 var common = require("util/common");
 
 module.exports.encodeKey = encodeKey;
 module.exports.getUUID = generateUUID;
+module.exports.getNameIndex = getNameIndex;
 module.exports.generateDataList = generateDataList;
 
 function encodeKey(str) {
@@ -22,15 +24,33 @@ function generateUUID() {
     });
 }
 
+/**
+ *  生成nameIndex
+ * @param {*} str 
+ */
+function getNameIndex(str) {
+    common.toast(str);
+    var char = str.charAt(0);
+    var reg = new RegExp('^[a-zA-Z]$');
+    if (reg.test(char)) {
+        char = char.toUpperCase();
+    } else {
+        char = '#';
+    }
+    return char;
+}
 
+/**
+ * 生成数据列
+ * @param {*} source 
+ */
 function generateDataList(source) {
     if (!source instanceof Array) {
         return
     }
-    var indexs = constants.conMap().indexCharArray;
+    var indexs = constants.getCon().indexCharArray;
     var param = {};
     var result = {};
-    common.toast(indexs);
     indexs.forEach(function (x) {
         param[x] = [{
             template: 0,
@@ -44,7 +64,6 @@ function generateDataList(source) {
             'id': x.id
         })
     })
-
     indexs.forEach(function (x) {
         if (param[x].length > 1) {
             result[x] = param[x];

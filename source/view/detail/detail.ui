@@ -13,7 +13,7 @@
 					{
 						"textAlign":"center",
 						"width":"720",
-						"y":"23",
+						"y":"63",
 						"fontSize":"40",
 						"id":"do_Label_title",
 						"text":"详 情",
@@ -26,7 +26,7 @@
 						"x":"15",
 						"width":"74",
 						"iconColor":"FFFFFFFF",
-						"y":"13",
+						"y":"53",
 						"iconSize":"55",
 						"iconCode":"e722",
 						"id":"do_IconFont_back",
@@ -35,22 +35,22 @@
 					},
 					{
 						"iconName":"code_qn",
-						"x":"630",
+						"x":"631",
 						"width":"74",
 						"iconColor":"FFFFFFFF",
-						"y":"13",
+						"y":"53",
 						"iconSize":"55",
-						"iconCode":"e6e6",
-						"id":"do_IconFont_edit",
+						"iconCode":"e730",
+						"id":"do_IconFont_more",
 						"type":"do_IconFont",
 						"height":"74"
 					}
 				],
-				"height":"100"
+				"height":"140"
 			},
 			{
 				"width":"720",
-				"y":"100",
+				"y":"140",
 				"id":"do_ScrollView",
 				"type":"do_ScrollView",
 				"views":[
@@ -264,6 +264,59 @@
 											}
 										],
 										"height":"917"
+									},
+									{
+										"bgColor":"3F51B5FF",
+										"x":"617",
+										"width":"-1",
+										"id":"do_ALayout_morelist",
+										"type":"do_ALayout",
+										"views":[
+											{
+												"width":"-1",
+												"id":"do_LinearLayout_1",
+												"type":"do_LinearLayout",
+												"views":[
+													{
+														"id":"do_Canvas_4",
+														"type":"do_Canvas",
+														"height":"10"
+													},
+													{
+														"iconName":"code_qn",
+														"iconColor":"FFFFFFFF",
+														"iconSize":"55",
+														"y":"10",
+														"iconCode":"e6f5",
+														"id":"do_IconFont_edit",
+														"type":"do_IconFont"
+													},
+													{
+														"y":"90",
+														"id":"do_Canvas_1",
+														"type":"do_Canvas",
+														"height":"20"
+													},
+													{
+														"iconName":"code_qn",
+														"iconColor":"FFFFFFFF",
+														"y":"110",
+														"iconSize":"55",
+														"iconCode":"e738",
+														"id":"do_IconFont_del",
+														"type":"do_IconFont"
+													},
+													{
+														"y":"190",
+														"id":"do_Canvas_3",
+														"type":"do_Canvas",
+														"height":"10"
+													}
+												],
+												"height":"-1"
+											}
+										],
+										"height":"-1"
 									}
 								],
 								"height":"979"

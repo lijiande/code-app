@@ -3,7 +3,7 @@
  * @Timestamp : 2017-05-07
  */
 var common = require("util/common");
-var dataSource = require("util/dataSource");
+var dataSource = require("repository/code");
 
 
 var do_Notification = sm("do_Notification");
@@ -20,31 +20,31 @@ var icon_me = ui("do_IconFont_me");
 
 
 // 退出到开发页面
-do_Page.on("back", function(data) {
-	do_App.closePage("","",2);
-//	do_Global.exit();
+do_Page.on("back", function (data) {
+	do_App.closePage("", "", 2);
+	//	do_Global.exit();
 })
 
 // 页面列表
-var viewShower_data = [
-                       {
-                    	   "id":"more",
-                    	   "path":"source://view/more/more.ui"
-                       },
-                       {
-                    	   "id":"dataList",
-                    	   "path":"source://view/dataList/dataList.ui"
-                       }];
+var viewShower_data = [{
+		"id": "more",
+		"path": "source://view/more/more.ui"
+	},
+	{
+		"id": "dataList",
+		"path": "source://view/dataList/dataList.ui"
+	}
+];
 do_ViewShower_main.addViews(viewShower_data);
-do_ViewShower_main.showView("dataList","fade");
+do_ViewShower_main.showView("dataList", "fade");
 
-alayout1.on("touch",function(){
+alayout1.on("touch", function () {
 	do_ViewShower_main.showView("dataList", "fade");
 	title.text = "首 页";
 	icon_home.iconCode = 'e702';
 	icon_me.iconCode = 'e718';
 });
-alayout2.on("touch",function(){
+alayout2.on("touch", function () {
 	do_ViewShower_main.showView("more", "fade");
 	title.text = "我";
 	icon_home.iconCode = 'e703';
@@ -58,8 +58,7 @@ alayout2.on("touch",function(){
 //	});
 //});
 
-common.page.on("loaded",function(){
-});
+common.page.on("loaded", function () {});
 
 
 
@@ -81,5 +80,3 @@ common.page.on("loaded",function(){
 //		delay3.start();
 //	}
 //})
-
-
