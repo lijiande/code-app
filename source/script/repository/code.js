@@ -9,7 +9,6 @@ var do_DataCache = d.sm("do_DataCache");
 var listName = constants.getCon().dataListName;
 
 // 系统级
-module.exports.initCodeTable = initCodeTable;
 module.exports.flushDataList = flushDataList;
 module.exports.initDataList = initDataList;
 
@@ -32,38 +31,6 @@ var main_data = d.mm("do_SQLite", "main");
 main_data.open("data://code_main.db");
 
 /**
- * 初始化表格
- * @returns true-执行成功，false-执行失败
- */
-function initCodeTable() {
-	d.print("start init method", "initCodeTable");
-	if (checkTable("code")) {
-		return true;
-	}
-	var sql = codeSql.getSql().createCodeTable.sql;
-
-	var result = main_data.executeSync(sql);
-	if (result) {
-		common.toast("初始化数据成功");
-		return true;
-	} else {
-		common.toast("系统异常");
-		return false;
-	}
-}
-/**
- * 检查表是否存在
- * @param tableName
- * @returns true-存在，false-不存在
- */
-function checkTable(tableName) {
-	var sql = codeSql.getSql().checkTable.sql;
-	var result = main_data.querySync(sql, [tableName])[0].num == 1 ? true : false;
-	d.print(result, "checkTable");
-	return result;
-}
-
-/**
  * 新增数据
  * @param saveArray 0-name,1-key,2-value,3-remark
  * @returns
@@ -77,7 +44,7 @@ function insertNew(code) {
 	var keyWord = code.keyWord;
 	var valueWord = code.valueWord;
 	var star = '1';
-	var remark = code.remark;
+	var remark = dataTool.encryptRemark(code.remark);
 	var sign = constants.getCon().newSign;
 
 	// 数据存储顺序
@@ -105,7 +72,7 @@ function insertNew(code) {
 }
 
 /**
- * 
+ * 修改更新数据
  * @param code 0-name,1-key,2-value,3-remark,4-id
  * @returns
  */
@@ -116,7 +83,7 @@ function update(code) {
 	var keyWord = code.keyWord;
 	var valueWord = code.valueWord;
 	var star = '1';
-	var remark = code.remark;
+	var remark = dataTool.encryptRemark(code.remark);
 	var sign = constants.getCon().updateSign;
 
 	// 数据存储顺序
@@ -148,10 +115,16 @@ function update(code) {
  */
 function getDetail(id) {
 	var result = main_data.querySync(codeSql.getSql().selectOne.sql, [id]);
-	return result;
+	if (!result || result.length === 0) {
+		return false;
+	} else {
+		result[0].remark = dataTool.decryptRemark(result[0].remark)
+		return result[0];
+	}
+
 }
 /**
- * 删除code
+ * 删除一条code数据
  * @param {*} id 
  * @return true-成功，false-失败
  */

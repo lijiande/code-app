@@ -38,23 +38,34 @@ var update_flage = false;
  * 初始化数据
  */
 initData();
+closeMoreList();
 
+/**
+ * 初始化详情数据
+ */
 function initData() {
 	var result = dataSource.getDetail(id);
-	if (result.length === 0) {
+	if (!result) {
 		common.toast("数据不存在");
 		dataSource.flushDataList();
 		do_App.closePage({
 			type: 1
 		});
 	}
-	detail = result[0];
+	detail = result;
 	text_name.text = detail.name;
 	text_key.text = detail.key;
 	text_value.text = detail.value;
 	text_remark.text = detail.remark;
 	text_modify_time.text = detail.modifyTime;
 	text_create_time.text = detail.createTime;
+}
+
+/**
+ * 合上下拉列表
+ */
+function closeMoreList() {
+	moreList.visible = false;
 }
 
 /**
@@ -98,6 +109,7 @@ canvas_create_time.defineLine({
 
 // 监控编辑按钮
 icon_edit.on("touch", function () {
+	closeMoreList();
 	do_App.openPage({
 		source: "source://view/addPage/addPage.ui",
 		data: {
@@ -110,14 +122,23 @@ icon_edit.on("touch", function () {
 	});
 })
 
+/**
+ * 下拉列表按钮
+ */
 icon_more.on("touch", function () {
 	moreList.visible = moreList.visible == true ? false : true;
 })
+
+/**
+ * 删除操作
+ */
 icon_del.on("touch", function () {
+	closeMoreList();
 	do_Notification.confirm('确认删除吗', '警 告', '否', '是', function (data, e) {
 		if (data === 2) {
 			var result = dataSource.deleteCode(id);
 			if (result) {
+				common.toast("删除成功");
 				do_App.closePage({
 					type: 1
 				});
@@ -157,6 +178,9 @@ icon_visible.on("touch", function () {
 	}
 })
 
+/**
+ * 检测上级页面
+ */
 do_Page.on('result', function (data) {
 	if (data.type === 1) {
 		update_flage = true;

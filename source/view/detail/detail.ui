@@ -264,65 +264,66 @@
 											}
 										],
 										"height":"917"
-									},
-									{
-										"bgColor":"3F51B5FF",
-										"x":"617",
-										"width":"-1",
-										"id":"do_ALayout_morelist",
-										"type":"do_ALayout",
-										"views":[
-											{
-												"width":"-1",
-												"id":"do_LinearLayout_1",
-												"type":"do_LinearLayout",
-												"views":[
-													{
-														"id":"do_Canvas_4",
-														"type":"do_Canvas",
-														"height":"10"
-													},
-													{
-														"iconName":"code_qn",
-														"iconColor":"FFFFFFFF",
-														"iconSize":"55",
-														"y":"10",
-														"iconCode":"e6f5",
-														"id":"do_IconFont_edit",
-														"type":"do_IconFont"
-													},
-													{
-														"y":"90",
-														"id":"do_Canvas_1",
-														"type":"do_Canvas",
-														"height":"20"
-													},
-													{
-														"iconName":"code_qn",
-														"iconColor":"FFFFFFFF",
-														"y":"110",
-														"iconSize":"55",
-														"iconCode":"e738",
-														"id":"do_IconFont_del",
-														"type":"do_IconFont"
-													},
-													{
-														"y":"190",
-														"id":"do_Canvas_3",
-														"type":"do_Canvas",
-														"height":"10"
-													}
-												],
-												"height":"-1"
-											}
-										],
-										"height":"-1"
 									}
 								],
 								"height":"979"
 							}
 						],
 						"height":"1153"
+					}
+				],
+				"height":"-1"
+			},
+			{
+				"bgColor":"3F51B5FF",
+				"width":"-1",
+				"x":"617",
+				"y":"140",
+				"id":"do_ALayout_morelist",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"width":"-1",
+						"id":"do_LinearLayout_1",
+						"type":"do_LinearLayout",
+						"views":[
+							{
+								"id":"do_Canvas_4",
+								"type":"do_Canvas",
+								"height":"10"
+							},
+							{
+								"iconName":"code_qn",
+								"iconColor":"FFFFFFFF",
+								"iconSize":"55",
+								"y":"10",
+								"iconCode":"e6f5",
+								"id":"do_IconFont_edit",
+								"type":"do_IconFont"
+							},
+							{
+								"y":"90",
+								"id":"do_Canvas_1",
+								"type":"do_Canvas",
+								"height":"20"
+							},
+							{
+								"iconName":"code_qn",
+								"iconColor":"FFFFFFFF",
+								"y":"110",
+								"iconSize":"55",
+								"iconCode":"e738",
+								"id":"do_IconFont_del",
+								"type":"do_IconFont"
+							},
+							{
+								"y":"190",
+								"id":"do_Canvas_3",
+								"type":"do_Canvas",
+								"height":"10"
+							}
+						],
+						"height":"-1"
 					}
 				],
 				"height":"-1"

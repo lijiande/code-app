@@ -5,11 +5,93 @@ var constants = require('config/constants');
 var dataTool = require("util/dataTool");
 var do_DataCache = d.sm("do_DataCache");
 
+// 检查code表
+module.exports.initCodeTable = initCodeTable;
+// 检查当前是否有用户缓存
 module.exports.checkUserCache = checkUserCache;
+// 保存用户
 module.exports.saveUser = saveUser;
+// 登陆验证
+module.exports.checkUser = checkUser;
+
+// 是否开启简单登陆-简单登陆密码验证
+module.exports.getOpenSimLogin = getOpenSimLogin;
+module.exports.checkSimPwd = checkSimPwd;
+
+// 系统重置
+module.exports.sysReset = sysReset;
+
+// 测试专用
+module.exports.test = test;
 
 var defaultErrorTimes = 3;
 var defaultTimeLength = 10;
+
+// 准备好数据库
+var main_data = d.mm("do_SQLite", "main");
+main_data.open("data://code_main.db");
+// --------------------------------以下是系统级操作
+
+function test() {
+    common.toast('test');
+}
+
+/**
+ * 检查表格，并创建
+ * @returns true-执行成功，false-执行失败
+ */
+function initCodeTable() {
+    d.print("start init method", "initCodeTable");
+    if (checkTable("code")) {
+        return true;
+    }
+    var sql = codeSql.getSql().createCodeTable.sql;
+    var result = main_data.executeSync(sql);
+    if (result) {
+        common.toast("初始化数据成功");
+        return true;
+    } else {
+        common.toast("系统异常");
+        return false;
+    }
+}
+
+// 系统清除
+function sysReset() {
+    if (checkTable("code")) {
+        var sql = codeSql.getSql().dropTable.sql;
+        var result = main_data.executeSync(sql);
+        if (result) {
+            var result1 = do_DataCache.removeAll();
+            if (result1) {
+                common.toast("系统初始化成功");
+                return true;
+            }
+        }
+        common.toast("系统初始化失败");
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
+
+/**
+ * 检查表是否存在
+ * @param tableName
+ * @returns true-存在，false-不存在
+ */
+function checkTable(tableName) {
+    var sql = codeSql.getSql().checkTable.sql;
+    var result = main_data.querySync(sql, [tableName])[0].num == 1 ? true : false;
+    d.print(result, "checkTable");
+    return result;
+}
+
+
+
+// --------------------------------以下是用户操作
 /**
  * 检查是否有登陆信息
  */
@@ -23,11 +105,17 @@ function checkUserCache() {
  * @param {*} data 
  */
 function saveUser(data) {
-    var userName = data.name;
-    var userPassword = data.password;
+    if (checkUserCache()) {
+        common.toast("当前注册不可以用");
+        return false;
+    }
+    var userName = data.userName;
+    var userPassword = data.userPassword;
     var user = {};
     user.userName = userName;
     user.userPassword = userPassword;
+    user.simSwatch = true;
+    user.simPwd = userPassword;
     do_DataCache.saveData('user', user);
     return true;
 }
@@ -37,11 +125,19 @@ function saveUser(data) {
  * @param {*} data 
  */
 function checkUser(data) {
-    var user = do_DataCache.loadData('user');
-    if (!user)
+    if (!data.userName || !data.userPassword) {
         return false;
-    if (user.userName === data.name) {
-        if (user.userPassword === data.password) {
+    }
+    if (errorTimesIsFull()) {
+        return false;
+    }
+    var user = do_DataCache.loadData('user');
+    if (!user || !user.userName || !user.userPassword) {
+        return false;
+    }
+    if (user.userName === data.userName) {
+        if (user.userPassword === data.userPassword) {
+            do_DataCache.removeData('errorTimes');
             return true;
         } else {
             addErrorTimes();
@@ -55,6 +151,7 @@ function checkUser(data) {
 
 /**
  * 增加密码错误次数
+ * @returns true-次数已满
  */
 function addErrorTimes() {
     var obj = {};
@@ -71,12 +168,26 @@ function addErrorTimes() {
         obj.times = 1;
     }
     if (obj.times >= defaultErrorTimes) {
-        common.toast('密码错误' + defaultErrorTimes + '次，请稍后再试')
+        common.toast('密码错误' + defaultErrorTimes + '次，请稍后再试');
     } else {
         common.toast('密码错误，还有' + (defaultErrorTimes - obj.times) + '次机会');
         obj.time = nowTime;
         do_DataCache.saveData('errorTimes', obj);
     }
+}
+/**
+ * 密码错误次数是否已满
+ */
+function errorTimesIsFull() {
+    var obj = {};
+    if (do_DataCache.hasData('errorTimes')) {
+        obj = do_DataCache.loadData('errorTimes');
+        if (obj && obj.times && obj.times >= defaultErrorTimes) {
+            common.toast('密码错误' + defaultErrorTimes + '次，请稍后再试');
+            return true;
+        }
+    }
+    return false;
 }
 
 /**
@@ -89,5 +200,46 @@ function getUserName() {
     } else {
         return false;
     }
+}
+/**
+ * 是否开启简单登陆
+ */
+function getOpenSimLogin() {
+    var user = do_DataCache.loadData('user');
+    if (user) {
+        if (user.simSwatch) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
 
+/**
+ * 检查简单登陆密码的正误
+ */
+function checkSimPwd(str) {
+    var obj = {};
+    obj.result = false;
+    if (getOpenSimLogin()) {
+        if (errorTimesIsFull) {
+            var user = do_DataCache.loadData('user');
+            user.simSwatch = false;
+            do_DataCache.saveData('user', user);
+            obj.type = 1;
+            return obj;
+        }
+        var user = do_DataCache.loadData('user');
+        if (str === user.simPwd) {
+            obj.result = true;
+            return obj;
+        } else {
+            addErrorTimes();
+        }
+    } else {
+        obj.type = 1;
+    }
+    return obj;
 }

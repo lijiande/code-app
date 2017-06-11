@@ -6,6 +6,8 @@ module.exports.encodeKey = encodeKey;
 module.exports.getUUID = generateUUID;
 module.exports.getNameIndex = getNameIndex;
 module.exports.generateDataList = generateDataList;
+module.exports.encryptRemark = encryptRemark;
+module.exports.decryptRemark = decryptRemark;
 
 function encodeKey(str) {
     return "hello";
@@ -70,4 +72,40 @@ function generateDataList(source) {
         }
     })
     return result;
+}
+
+function encryptRemark(str) {
+    if (str) {
+        var length = str.length;
+        var numArray = [];
+        for (var a = 0; a < length; a++) {
+            numArray.push(str.charCodeAt(a) - 5);
+        }
+        var result = '';
+        numArray.forEach(function (data) {
+            result = result.concat(String.fromCharCode(data));
+        })
+        return result;
+    } else {
+        return '';
+    }
+
+}
+
+function decryptRemark(str) {
+    if (str) {
+        var length = str.length;
+        var numArray = [];
+        for (var a = 0; a < length; a++) {
+            numArray.push(str.charCodeAt(a) + 5);
+        }
+        var result = '';
+        numArray.forEach(function (data) {
+            result = result.concat(String.fromCharCode(data));
+        })
+        return result;
+    } else {
+        return '';
+    }
+
 }
