@@ -1,11 +1,11 @@
 var d = require("deviceone");
-// 声明
 
 module.exports.init = init;
+module.exports.security = security;
 
 var app = d.sm("do_App");
 var page = d.sm("do_Page");
-
+var do_Global = d.sm("do_Global");
 function init(ui_id) {
 	if(ui_id){
 		var close = d.ui(ui_id);
@@ -19,5 +19,11 @@ function init(ui_id) {
 	var main = d.ui("$");
 	main.on("touch", function() {
 		page.hideKeyboard();
+	})
+}
+
+function security(){
+	do_Global.on('background',function(){
+		do_Global.exit();
 	})
 }

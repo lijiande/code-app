@@ -5,34 +5,102 @@
 		"type":"do_ALayout",
 		"views":[
 			{
+				"bgColor":"00000000",
 				"width":"720",
 				"id":"do_ALayout_2",
 				"type":"do_ALayout",
 				"views":[
 					{
+						"bgColor":"3F51B5FF",
+						"width":"720",
+						"id":"do_ALayout_top",
+						"type":"do_ALayout",
+						"views":[
+							{
+								"textAlign":"center",
+								"x":"160",
+								"width":"400",
+								"y":"23",
+								"fontSize":"40",
+								"id":"do_Label_1",
+								"text":"首 页",
+								"type":"do_Label",
+								"fontColor":"FFFFFFFF",
+								"height":"54"
+							},
+							{
+								"iconName":"code_qn",
+								"x":"620",
+								"width":"74",
+								"iconColor":"FFFFFFFF",
+								"y":"13",
+								"iconSize":"55",
+								"iconCode":"e741",
+								"id":"do_IconFont_search",
+								"type":"do_IconFont",
+								"height":"74"
+							}
+						],
+						"height":"100"
+					},
+					{
 						"bgColor":"00000000",
 						"templates":"source://view/template/listIndexTemplate.ui,source://view/template/listTemplate.ui",
 						"width":"720",
+						"y":"100",
 						"id":"do_IndexListView_dataList",
 						"type":"do_IndexListView",
 						"selectedColor":"D9D9D9FF",
 						"height":"1035"
 					},
 					{
+						"x":"108",
+						"width":"504",
+						"y":"110",
+						"id":"do_ALayout_search",
+						"type":"do_ALayout",
+						"views":[
+							{
+								"border":"000000FF,1,[25,25,25,25]",
+								"textAlign":"center",
+								"hint":"搜搜看",
+								"x":"2",
+								"width":"500",
+								"y":"5",
+								"fontSize":"30",
+								"id":"do_TextField_search",
+								"type":"do_TextField",
+								"enterText":"search",
+								"maxLength":"10",
+								"height":"60"
+							}
+						],
+						"height":"70"
+					},
+					{
 						"border":"3F51B5FF,0,[51,51,51,51]",
 						"bgColor":"3F51B5FF",
-						"iconName":"code_qn",
-						"x":"569",
-						"iconColor":"FFFFFFFF",
-						"y":"892",
-						"iconSize":"55",
-						"iconCode":"e6df",
-						"id":"do_IconFont_add",
-						"type":"do_IconFont",
+						"x":"550",
+						"y":"940",
+						"id":"do_ALayout_add",
+						"type":"do_ALayout",
+						"views":[
+							{
+								"border":"3F51B5FF,0,[51,51,51,51]",
+								"bgColor":"00000000",
+								"iconName":"code_qn",
+								"iconColor":"FFFFFFFF",
+								"iconSize":"55",
+								"iconCode":"e6df",
+								"id":"do_IconFont_add",
+								"type":"do_IconFont",
+								"height":"100"
+							}
+						],
 						"height":"100"
 					}
 				],
-				"height":"1035"
+				"height":"1135"
 			}
 		],
 		"height":"1280"

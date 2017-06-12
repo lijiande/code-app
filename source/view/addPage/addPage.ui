@@ -90,7 +90,6 @@
 												"y":"50",
 												"fontSize":"30",
 												"id":"do_TextField_name",
-												"text":"12",
 												"enterText":"next",
 												"maxLength":"10",
 												"height":"35"
@@ -119,7 +118,6 @@
 												"y":"155",
 												"fontSize":"30",
 												"id":"do_TextField_keyWord",
-												"text":"34",
 												"type":"do_TextField",
 												"clearAll":"true",
 												"maxLength":"20",
@@ -155,7 +153,6 @@
 														"width":"450",
 														"fontSize":"30",
 														"id":"do_TextField_valueWord",
-														"text":"56",
 														"type":"do_TextField",
 														"clearAll":"true",
 														"maxLength":"20",

@@ -8,11 +8,14 @@ module.exports.getNameIndex = getNameIndex;
 module.exports.generateDataList = generateDataList;
 module.exports.encryptRemark = encryptRemark;
 module.exports.decryptRemark = decryptRemark;
+module.exports.encryptValue = encryptValue;
+module.exports.decryptValue = decryptValue;
+module.exports.encryptKey = encryptKey;
+module.exports.decryptKey = decryptKey;
 
 function encodeKey(str) {
     return "hello";
 }
-
 
 /**
  * 生成UUID
@@ -48,7 +51,10 @@ function getNameIndex(str) {
  */
 function generateDataList(source) {
     if (!source instanceof Array) {
-        return
+        return;
+    }
+    if (source.length === 0) {
+        return;
     }
     var indexs = constants.getCon().indexCharArray;
     var param = {};
@@ -108,4 +114,62 @@ function decryptRemark(str) {
         return '';
     }
 
+}
+
+function encryptValue(str) {
+    var valueNumParam = constants.getCon().valueNumParam;
+    var length = str.length;
+    var numArray = [];
+    var num = length;
+    for (var a = 0; a < length; a++) {
+        numArray.push(str.charCodeAt(a) + valueNumParam[num]);
+        num++;
+    }
+    var result = '';
+    numArray.forEach(function (data) {
+        result = result.concat(String.fromCharCode(data));
+    })
+    return result;
+}
+
+function decryptValue(str) {
+    var valueNumParam = constants.getCon().valueNumParam;
+    var length = str.length;
+    var numArray = [];
+    var num = length;
+    for (var a = 0; a < length; a++) {
+        numArray.push(str.charCodeAt(a) - valueNumParam[num]);
+        num++;
+    }
+    var result = '';
+    numArray.forEach(function (data) {
+        result = result.concat(String.fromCharCode(data));
+    })
+    return result;
+}
+
+function encryptKey(str) {
+    var valueNumParam2 = constants.getCon().valueNumParam2;
+    var valueNumParam3 = constants.getCon().valueNumParam3;
+    var length = str.length;
+    var resultTemp = '';
+    for (var a = 0; a < length; a++) {
+        var num = valueNumParam3[a];
+        resultTemp = resultTemp.concat(str.charAt(a)).concat(String.fromCharCode(valueNumParam2[num]));
+    }
+    return encryptRemark(resultTemp);
+}
+
+function decryptKey(str) {
+    var temp = decryptRemark(str);
+    var valueNumParam2 = constants.getCon().valueNumParam2;
+    var valueNumParam3 = constants.getCon().valueNumParam3;
+    var length = str.length / 2;
+    var resultTemp = '';
+    var num = 0;
+    for (var a = 0; a < length; a++) {
+        resultTemp = resultTemp.concat(temp.charAt(num));
+        num = num + 2;
+    }
+    return resultTemp;
 }

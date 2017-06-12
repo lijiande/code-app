@@ -14,6 +14,27 @@
 				"text":"。。。",
 				"type":"do_Label",
 				"height":"244"
+			},
+			{
+				"bgColor":"3F51B5FF",
+				"width":"720",
+				"id":"do_ALayout_2",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"textAlign":"center",
+						"x":"160",
+						"width":"400",
+						"y":"23",
+						"fontSize":"40",
+						"id":"do_Label_2",
+						"text":"我",
+						"type":"do_Label",
+						"fontColor":"FFFFFFFF",
+						"height":"54"
+					}
+				],
+				"height":"100"
 			}
 		],
 		"height":"1280"

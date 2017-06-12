@@ -2,19 +2,31 @@
  * 
  */
 
-var dataSource = require("repository/code");
+var codeRep = require("repository/code");
 var constants = require("config/constants");
+var pageUi = require("ui");
+pageUi.security();
+
 var nf = sm("do_Notification");
 var do_Global = sm("do_Global");
 var do_Page = sm("do_Page");
 var do_App = sm("do_App");
 var do_index_dataList = ui("do_IndexListView_dataList");
-var hashData = mm("do_HashData");
+var alayout_search = ui('do_ALayout_search');
+var alayout_add = ui('do_ALayout_add');
+
+var search_text = ui('do_TextField_search');
+
 var icon_add = ui("do_IconFont_add");
+var icon_search = ui("do_IconFont_search");
+
+var hashData = mm("do_HashData");
+
+alayout_search.visible = false;
 
 function flushPage() {
-	hashData = dataSource.getDataListHash();
-	do_index_dataList.bindItems(hashData, dataSource.getDataIndexList());
+	hashData = codeRep.getDataListHash();
+	do_index_dataList.bindItems(hashData, codeRep.getDataIndexList());
 	do_index_dataList.refreshData();
 }
 
@@ -32,6 +44,7 @@ do_Page.on("result", function (data) {
  * 单元绑定事件
  */
 do_index_dataList.on("touch", function (data) {
+	alayout_search.visible = false;
 	var groupId = data.groupID;
 	var index = data.index;
 	var datas = hashData.getAll();
@@ -62,4 +75,14 @@ icon_add.on("touch", function () {
 });
 do_Page.on('loaded', function () {
 	flushPage();
+})
+
+icon_search.on('touch', function () {
+	alayout_search.visible = alayout_search.visible === true ? false : true;
+})
+
+search_text.on('enter', function () {
+	hashData = codeRep.searchCode(search_text.text);
+	do_index_dataList.bindItems(hashData, codeRep.getDataIndexList());
+	do_index_dataList.refreshData();
 })

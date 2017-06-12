@@ -40,3 +40,10 @@ password.on("enter", function () {
 do_Page.on('loaded', function () {
 	sysRep.initCodeTable();
 })
+
+confirm.on("touchDown", function () {
+	confirm.bgColor = '0080FFFF';
+})
+confirm.on("touchUp", function () {
+	confirm.bgColor = '3F51B5FF';
+})

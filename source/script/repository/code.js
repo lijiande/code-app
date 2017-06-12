@@ -17,6 +17,7 @@ module.exports.insertNew = insertNew;
 module.exports.deleteCode = deleteCode;
 module.exports.update = update;
 module.exports.getDetail = getDetail;
+module.exports.searchCode = searchCode;
 
 
 // 给listIndexView提供数据
@@ -40,9 +41,8 @@ function insertNew(code) {
 	var id = dataTool.getUUID();
 	var name = code.name;
 	var nameIndex = dataTool.getNameIndex(name);
-	common.toast(name);
-	var keyWord = code.keyWord;
-	var valueWord = code.valueWord;
+	var keyWord = dataTool.encryptKey(code.keyWord);
+	var valueWord = dataTool.encryptValue(code.valueWord);
 	var star = '1';
 	var remark = dataTool.encryptRemark(code.remark);
 	var sign = constants.getCon().newSign;
@@ -80,8 +80,8 @@ function update(code) {
 	var id = code.id;
 	var name = code.name;
 	var nameIndex = dataTool.getNameIndex(name);
-	var keyWord = code.keyWord;
-	var valueWord = code.valueWord;
+	var keyWord = dataTool.encryptKey(code.keyWord);
+	var valueWord = dataTool.encryptValue(code.valueWord);
 	var star = '1';
 	var remark = dataTool.encryptRemark(code.remark);
 	var sign = constants.getCon().updateSign;
@@ -118,8 +118,11 @@ function getDetail(id) {
 	if (!result || result.length === 0) {
 		return false;
 	} else {
-		result[0].remark = dataTool.decryptRemark(result[0].remark)
-		return result[0];
+		var code = result[0];
+		code.remark = dataTool.decryptRemark(code.remark);
+		code.value = dataTool.decryptValue(code.value);
+		code.key = dataTool.decryptKey(code.key);
+		return code;
 	}
 
 }
@@ -132,6 +135,22 @@ function deleteCode(id) {
 	var result = main_data.executeSync(codeSql.getSql().delete.sql, [id]);
 	flushDataList();
 	return result;
+}
+
+/**
+ * 搜索
+ * @param {*} str 
+ */
+function searchCode(str) {
+	var hashData = d.mm("do_HashData");
+	var dataObj = {};
+	var name = '%' + str + '%';
+	var array = main_data.querySync(codeSql.getSql().searchParam.sql, [name]);
+	if (array.length != 0) {
+		dataObj = dataTool.generateDataList(array);
+	}
+	hashData.addData(dataObj);
+	return hashData;
 }
 /**
  * 初始化dataList

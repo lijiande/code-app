@@ -5,7 +5,7 @@ var constants = require('config/constants');
 var dataTool = require("util/dataTool");
 var do_DataCache = d.sm("do_DataCache");
 
-// 检查code表
+// 检查初始化code表
 module.exports.initCodeTable = initCodeTable;
 // 检查当前是否有用户缓存
 module.exports.checkUserCache = checkUserCache;
@@ -167,12 +167,14 @@ function addErrorTimes() {
     } else {
         obj.times = 1;
     }
+    obj.time = nowTime;
+    if (obj.times <= defaultErrorTimes) {
+        do_DataCache.saveData('errorTimes', obj);
+    }
     if (obj.times >= defaultErrorTimes) {
-        common.toast('密码错误' + defaultErrorTimes + '次，请稍后再试');
+        common.toast('密码已错误' + defaultErrorTimes + '次，请稍后再试');
     } else {
         common.toast('密码错误，还有' + (defaultErrorTimes - obj.times) + '次机会');
-        obj.time = nowTime;
-        do_DataCache.saveData('errorTimes', obj);
     }
 }
 /**
@@ -180,14 +182,24 @@ function addErrorTimes() {
  */
 function errorTimesIsFull() {
     var obj = {};
+    var nowTime = new Date().getTime();
     if (do_DataCache.hasData('errorTimes')) {
         obj = do_DataCache.loadData('errorTimes');
-        if (obj && obj.times && obj.times >= defaultErrorTimes) {
-            common.toast('密码错误' + defaultErrorTimes + '次，请稍后再试');
-            return true;
+        var timelength = (nowTime - obj.time) / 1000 / 60;
+        if (timelength > defaultTimeLength) {
+            return false;
         }
+        if (obj.times >= defaultErrorTimes) {
+            common.toast('密码已错误' + defaultErrorTimes + '次，请稍后再试');
+            d.print(true, 'flageTest');
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
     }
-    return false;
+
 }
 
 /**
@@ -207,11 +219,7 @@ function getUserName() {
 function getOpenSimLogin() {
     var user = do_DataCache.loadData('user');
     if (user) {
-        if (user.simSwatch) {
-            return true;
-        } else {
-            return false;
-        }
+        return user.simSwatch;
     } else {
         return false;
     }
@@ -223,11 +231,13 @@ function getOpenSimLogin() {
 function checkSimPwd(str) {
     var obj = {};
     obj.result = false;
+    d.print(getOpenSimLogin(), 'getOpenSimLogin');
     if (getOpenSimLogin()) {
-        if (errorTimesIsFull) {
+        if (errorTimesIsFull()) {
             var user = do_DataCache.loadData('user');
             user.simSwatch = false;
             do_DataCache.saveData('user', user);
+            d.print(1, 'flageTest');
             obj.type = 1;
             return obj;
         }
@@ -239,6 +249,7 @@ function checkSimPwd(str) {
             addErrorTimes();
         }
     } else {
+        d.print(2, 'flageTest');
         obj.type = 1;
     }
     return obj;

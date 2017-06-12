@@ -81,3 +81,6 @@ button_login.on("touchDown", function () {
 button_login.on("touchUp", function () {
     button_login.bgColor = '3F51B5FF';
 })
+do_Page.on('loaded', function () {
+    sysRep.initCodeTable();
+})

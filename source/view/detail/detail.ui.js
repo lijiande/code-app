@@ -4,6 +4,8 @@
 var dataTool = require("util/dataTool");
 var common = require("util/common");
 var dataSource = require("repository/code");
+var pageUi = require("ui");
+pageUi.security();
 
 var do_Global = sm("do_Global");
 var do_Page = sm("do_Page");

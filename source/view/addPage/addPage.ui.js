@@ -4,15 +4,13 @@
 var dataTool = require("util/dataTool");
 var common = require("util/common");
 var dataSource = require("repository/code");
+var pageUi = require("ui");
+pageUi.security();
 
 var do_Global = sm("do_Global");
 var do_Page = sm("do_Page");
 var do_App = sm("do_App");
 var do_Notification = sm("do_Notification");
-var main = ui("$");
-main.on("touch", function () {
-	do_Page.hideKeyboard();
-})
 
 var label_title = ui("do_Label_title");
 var text_name = ui("do_TextField_name");

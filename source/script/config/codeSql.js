@@ -35,8 +35,10 @@ var selectParam = "SELECT id,name,name_index FROM code ORDER BY name_index";
 // 同步sql
 var syncSelect = "SELECT id,user_id as userId,name,name_index as nameIndex,key_word as keyWord," +
 	"value_word as valueWord,create_time as createTime,modify_time as modifyTime,star,remark,sign FROM code";
-
+// 删除表code
 var dropTable = 'DROP TABLE code';
+
+var searchParam = 'SELECT id,name,name_index FROM code WHERE name LIKE ?';
 var sqlMap = {
 	createCodeTable: {
 		sql: createCodeTable,
@@ -73,5 +75,9 @@ var sqlMap = {
 	dropTable: {
 		sql: dropTable,
 		num: 0
+	},
+	searchParam: {
+		sql: searchParam,
+		num: 1
 	}
 };
