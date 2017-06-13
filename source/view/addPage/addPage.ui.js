@@ -95,7 +95,10 @@ function saveNew(data) {
 	if (result) {
 		do_Notification.toast("保存成功");
 		do_App.closePage({
-			type: 1
+			data: {
+				type: 1
+			},
+			animationType: "push_l2r"
 		})
 	} else {
 		do_Notification.alert("保存失败", '系统异常', '是', function (data, e) {});
@@ -112,7 +115,10 @@ function update(data) {
 	if (result) {
 		do_Notification.toast("保存成功");
 		do_App.closePage({
-			type: 1
+			data: {
+				type: 1
+			},
+			animationType: "push_l2r"
 		})
 	} else {
 		do_Notification.alert("保存失败", '系统异常', '是', function (data, e) {});
@@ -130,18 +136,24 @@ do_Page.on("back", function (data) {
 	}
 	do_Notification.confirm('未保存，确认退出吗', '提示', '否', '是', function (data, e) {
 		if (data === 2) {
-			do_App.closePage();
+			do_App.closePage({
+				animationType: "push_l2r"
+			});
 		}
 	})
 })
 icon_back.on("touch", function () {
 	if (!back_flage) {
-		do_App.closePage();
+		do_App.closePage({
+			animationType: "push_l2r"
+		});
 		return;
 	}
 	do_Notification.confirm('未保存，确认退出吗', '提示', '否', '是', function (data, e) {
 		if (data === 2) {
-			do_App.closePage();
+			do_App.closePage({
+				animationType: "push_l2r"
+			});
 		}
 	})
 })

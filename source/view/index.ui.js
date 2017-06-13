@@ -23,8 +23,11 @@ var icon_top = ui('do_IconFont_top');
 
 // 退出到开发页面
 do_Page.on("back", function (data) {
-	do_App.closePage("", "", 2);
-//	do_Global.exit();
+	do_App.closePage({
+		data: {},
+		animationType: 'fade',
+		layer: 2
+	});
 })
 
 // 页面列表

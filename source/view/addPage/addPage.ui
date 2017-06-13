@@ -82,16 +82,16 @@
 											},
 											{
 												"border":"00000000,0,[0,0,0,0]",
-												"type":"do_TextField",
-												"clearAll":"true",
 												"bgColor":"00000000",
 												"hint":"tag name",
 												"width":"450",
 												"y":"50",
 												"fontSize":"30",
 												"id":"do_TextField_name",
+												"type":"do_TextField",
+												"clearAll":"true",
 												"enterText":"next",
-												"maxLength":"10",
+												"maxLength":"20",
 												"height":"35"
 											},
 											{
@@ -199,9 +199,10 @@
 												"views":[
 													{
 														"hintColor":"5C5C5CFF",
-														"margin":"8,0,8,0",
+														"margin":"8,8,8,8",
 														"hint":"remark",
-														"width":"620",
+														"width":"604",
+														"x":"8",
 														"y":"8",
 														"fontSize":"30",
 														"id":"do_TextBox_remark",

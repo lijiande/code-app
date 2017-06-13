@@ -51,7 +51,6 @@ function insertNew(code) {
 	//id,name,name_index,key_word,value_word,star,remark,sign
 	var paramArray = [id, name, nameIndex, keyWord, valueWord, star, remark, sign];
 	var temp = [id, name, nameIndex, keyWord, valueWord, star, sign];
-	// common.toast(paramArray);
 	var flag = true;
 	temp.forEach(function (x) {
 		if (!x) {
@@ -179,7 +178,7 @@ function initDataList() {
 function flushDataList() {
 	var array = main_data.querySync(codeSql.getSql().selectParam.sql)
 	var dataObj = dataTool.generateDataList(array);
-	var result = do_DataCache.saveData('listSource', dataObj);
+	var result = do_DataCache.saveData(listName, dataObj);
 	return result;
 }
 

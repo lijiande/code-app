@@ -5,20 +5,9 @@
 		"type":"do_ALayout",
 		"views":[
 			{
-				"textAlign":"center",
-				"x":"158",
-				"width":"320",
-				"y":"335",
-				"fontSize":"50",
-				"id":"do_Label_1",
-				"text":"。。。",
-				"type":"do_Label",
-				"height":"244"
-			},
-			{
 				"bgColor":"3F51B5FF",
 				"width":"720",
-				"id":"do_ALayout_2",
+				"id":"do_ALayout_top",
 				"type":"do_ALayout",
 				"views":[
 					{
@@ -35,6 +24,69 @@
 					}
 				],
 				"height":"100"
+			},
+			{
+				"width":"720",
+				"y":"308",
+				"id":"do_ALayout_3",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"width":"600",
+						"x":"100",
+						"fontSize":"50",
+						"id":"do_Label_1",
+						"text":"关于",
+						"type":"do_Label",
+						"height":"90"
+					},
+					{
+						"iconName":"code_qn",
+						"width":"90",
+						"iconSize":"55",
+						"iconCode":"e71d",
+						"id":"do_IconFont_1",
+						"type":"do_IconFont",
+						"height":"90"
+					},
+					{
+						"textAlign":"center",
+						"x":"315",
+						"width":"256",
+						"fontSize":"30",
+						"id":"do_Label_version",
+						"type":"do_Label",
+						"height":"90"
+					}
+				],
+				"height":"90"
+			},
+			{
+				"width":"720",
+				"y":"196",
+				"id":"do_ALayout_modipwd",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"x":"100",
+						"width":"600",
+						"fontSize":"50",
+						"id":"do_Label_3",
+						"text":"修改密码",
+						"type":"do_Label",
+						"height":"90"
+					},
+					{
+						"iconName":"code_qn",
+						"width":"90",
+						"iconSize":"55",
+						"iconCode":"e709",
+						"id":"do_IconFont_2",
+						"type":"do_IconFont",
+						"height":"90"
+					}
+				],
+				"height":"90"
 			}
 		],
 		"height":"1280"

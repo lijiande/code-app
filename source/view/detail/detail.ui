@@ -209,9 +209,9 @@
 												"height":"226"
 											},
 											{
-												"margin":"0,0,10,0",
+												"margin":"20,0,10,0",
 												"width":"120",
-												"y":"591",
+												"y":"611",
 												"fontSize":"30",
 												"id":"do_Label_modi_time",
 												"text":"修改时间",
@@ -221,7 +221,7 @@
 											},
 											{
 												"width":"450",
-												"y":"641",
+												"y":"661",
 												"fontSize":"30",
 												"id":"do_TextField_modi_time",
 												"type":"do_TextField",
@@ -230,7 +230,7 @@
 											},
 											{
 												"width":"450",
-												"y":"676",
+												"y":"696",
 												"id":"do_Canvas_modi_time",
 												"type":"do_Canvas",
 												"height":"20"
@@ -238,7 +238,7 @@
 											{
 												"margin":"0,0,10,0",
 												"width":"120",
-												"y":"696",
+												"y":"716",
 												"fontSize":"30",
 												"id":"do_Label_create_time",
 												"text":"创建时间",
@@ -248,7 +248,7 @@
 											},
 											{
 												"width":"450",
-												"y":"746",
+												"y":"766",
 												"fontSize":"30",
 												"id":"do_TextField_create_time",
 												"type":"do_TextField",
@@ -257,7 +257,7 @@
 											},
 											{
 												"width":"450",
-												"y":"781",
+												"y":"801",
 												"id":"do_Canvas_create_time",
 												"type":"do_Canvas",
 												"height":"20"

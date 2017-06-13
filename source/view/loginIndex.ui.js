@@ -43,5 +43,3 @@ if (sysRep.checkUserCache()) {
 	sysRep.sysReset();
 }
 do_ViewShower_main.showView(viewId, "fade");
-//var publicKey = 'oueWJQg1nz6nY7-6UrV8AXa9hEni9KgwADFVv9dKwTWyc2xCbRaKzwaGP66ndzc2mOTHtw6hyRQG56CEwSgeAqp2onwNqLSpwKLn4JenJ9ZRk_fJBXmGz4lNcRmYwXiAzyNdMf2swmVXdVHC3ybNcehlb0I7bEjbFAOTY7AighM8xKRjN7nAXEHJ3tuptMulVWaarSiAH4HQ1szrTG5tT1RgJpY7utPSW8S3MdxfLWMJpRcP98li9EuQrUCgxcpgs-kWfI4EqlevM091YRM2W7V8t1QhzVoJJFXA-xaSXDC-zcM9zAWkpwTlHCxloiGkpIG60ajJToOg2pcytTi0tw';
-//common.toast(rsa.encrypt(publicKey, 'ccc'));

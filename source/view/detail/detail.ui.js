@@ -51,7 +51,10 @@ function initData() {
 		common.toast("数据不存在");
 		dataSource.flushDataList();
 		do_App.closePage({
-			type: 1
+			data: {
+				type: 1
+			},
+			animationType: 'push_l2r'
 		});
 	}
 	detail = result;
@@ -119,7 +122,7 @@ icon_edit.on("touch", function () {
 			'data': detail
 		},
 		statusBarState: "show",
-		animationType: "fade",
+		animationType: "push_r2l",
 		statusBarFgColor: "black" // 修改缺省的状态栏字体颜色，只有white，black二种，这个属性只支持ios
 	});
 })
@@ -142,7 +145,9 @@ icon_del.on("touch", function () {
 			if (result) {
 				common.toast("删除成功");
 				do_App.closePage({
-					type: 1
+					data: {
+						type: 1
+					}
 				});
 			} else {
 				update_flage = true;

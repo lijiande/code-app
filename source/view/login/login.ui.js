@@ -9,7 +9,6 @@ var do_Global = sm("do_Global");
 var do_Page = sm("do_Page");
 var do_App = sm("do_App");
 
-
 var pageUi = require("ui");
 var common = require("util/common");
 

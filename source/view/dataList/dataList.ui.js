@@ -39,7 +39,6 @@ do_Page.on("result", function (data) {
 	}
 })
 
-
 /**
  * 单元绑定事件
  */
@@ -56,7 +55,7 @@ do_index_dataList.on("touch", function (data) {
 			'data': id
 		},
 		statusBarState: "transparent",
-		animationType: "fade",
+		animationType: "push_r2l",
 		statusBarFgColor: "black" // 修改缺省的状态栏字体颜色，只有white，black二种，这个属性只支持ios
 	});
 });
@@ -69,7 +68,7 @@ icon_add.on("touch", function () {
 	do_App.openPage({
 		source: "source://view/addPage/addPage.ui",
 		statusBarState: "show",
-		animationType: "fade",
+		animationType: "push_r2l",
 		statusBarFgColor: "black" // 修改缺省的状态栏字体颜色，只有white，black二种，这个属性只支持ios
 	});
 });
@@ -85,4 +84,8 @@ search_text.on('enter', function () {
 	hashData = codeRep.searchCode(search_text.text);
 	do_index_dataList.bindItems(hashData, codeRep.getDataIndexList());
 	do_index_dataList.refreshData();
+})
+
+do_Page.on('pause', function () {
+	alayout_search.visible = false;
 })

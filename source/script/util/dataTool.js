@@ -34,7 +34,6 @@ function generateUUID() {
  * @param {*} str 
  */
 function getNameIndex(str) {
-    common.toast(str);
     var char = str.charAt(0);
     var reg = new RegExp('^[a-zA-Z]$');
     if (reg.test(char)) {
@@ -51,10 +50,10 @@ function getNameIndex(str) {
  */
 function generateDataList(source) {
     if (!source instanceof Array) {
-        return;
+        return {};
     }
     if (source.length === 0) {
-        return;
+        return {};
     }
     var indexs = constants.getCon().indexCharArray;
     var param = {};
