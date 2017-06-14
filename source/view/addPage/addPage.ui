@@ -131,54 +131,63 @@
 												"height":"20"
 											},
 											{
-												"margin":"0,0,10,0",
+												"width":"593",
 												"y":"210",
-												"fontSize":"30",
-												"id":"do_Label_3",
-												"text":"密文",
-												"type":"do_Label",
-												"fontColor":"5C5C5CFF",
-												"height":"40"
-											},
-											{
-												"width":"620",
-												"y":"260",
 												"id":"do_LinearLayout_value",
 												"type":"do_LinearLayout",
 												"views":[
 													{
-														"border":"00000000,0,[0,0,0,0]",
-														"password":"true",
-														"hint":"password",
 														"width":"450",
-														"fontSize":"30",
-														"id":"do_TextField_valueWord",
-														"type":"do_TextField",
-														"clearAll":"true",
-														"maxLength":"20",
-														"height":"35"
+														"id":"do_LinearLayout_value1",
+														"type":"do_LinearLayout",
+														"views":[
+															{
+																"margin":"0,0,10,0",
+																"fontSize":"30",
+																"id":"do_Label_3",
+																"text":"密文",
+																"type":"do_Label",
+																"fontColor":"5C5C5CFF",
+																"height":"40"
+															},
+															{
+																"border":"00000000,0,[0,0,0,0]",
+																"password":"true",
+																"hint":"password",
+																"width":"450",
+																"y":"50",
+																"fontSize":"30",
+																"id":"do_TextField_valueWord",
+																"type":"do_TextField",
+																"clearAll":"true",
+																"maxLength":"20",
+																"height":"35"
+															},
+															{
+																"width":"450",
+																"y":"85",
+																"id":"do_Canvas_value",
+																"type":"do_Canvas",
+																"height":"20"
+															}
+														],
+														"height":"105"
 													},
 													{
-														"margin":"0,0,0,30",
+														"margin":"40,0,0,30",
 														"iconName":"code_temp",
-														"width":"36",
+														"width":"55",
 														"x":"480",
-														"iconSize":"35",
+														"iconSize":"45",
+														"y":"40",
 														"iconCode":"e6e5",
 														"id":"do_IconFont_visible",
 														"type":"do_IconFont",
-														"height":"35"
+														"height":"55"
 													}
 												],
-												"height":"35",
+												"height":"105",
 												"direction":"horizontal"
-											},
-											{
-												"width":"450",
-												"y":"295",
-												"id":"do_Canvas_value",
-												"type":"do_Canvas",
-												"height":"20"
 											},
 											{
 												"margin":"0,0,10,0",
@@ -214,6 +223,18 @@
 											}
 										],
 										"height":"-1"
+									},
+									{
+										"textAlign":"right",
+										"x":"570",
+										"width":"90",
+										"y":"622",
+										"fontSize":"25",
+										"id":"do_Label_remarknum",
+										"text":"0/100",
+										"type":"do_Label",
+										"fontColor":"808080FF",
+										"height":"30"
 									}
 								],
 								"height":"700"

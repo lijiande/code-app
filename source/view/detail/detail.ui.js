@@ -20,6 +20,7 @@ var text_remark = ui("do_TextBox_remark");
 var text_modify_time = ui("do_TextField_modi_time");
 var text_create_time = ui("do_TextField_create_time");
 var moreList = ui("do_ALayout_morelist");
+var text_remark_num = ui('do_Label_remarknum');
 
 var canvas_name = ui("do_Canvas_name");
 var canvas_key = ui("do_Canvas_key");
@@ -64,6 +65,7 @@ function initData() {
 	text_remark.text = detail.remark;
 	text_modify_time.text = detail.modifyTime;
 	text_create_time.text = detail.createTime;
+	text_remark_num.text = text_remark.text.length + "/" + 100;
 }
 
 /**
@@ -147,7 +149,8 @@ icon_del.on("touch", function () {
 				do_App.closePage({
 					data: {
 						type: 1
-					}
+					},
+					animationType: 'push_l2r'
 				});
 			} else {
 				update_flage = true;
@@ -163,13 +166,19 @@ icon_del.on("touch", function () {
 do_Page.on("back", function (data) {
 	var num = update_flage ? 1 : 0;
 	do_App.closePage({
-		type: num
+		data: {
+			type: num
+		},
+		animationType: 'push_l2r'
 	});
 })
 icon_back.on("touch", function () {
 	var num = update_flage ? 1 : 0;
 	do_App.closePage({
-		type: num
+		data: {
+			type: num
+		},
+		animationType: 'push_l2r'
 	});
 })
 

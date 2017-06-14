@@ -139,6 +139,42 @@
 		},
 		{
 			"Design":{
+				"Type":"List",
+				"Data":[
+					{
+						"id":"ASC",
+						"value":"默认键盘"
+					},
+					{
+						"id":"PHONENUMBER",
+						"value":"标准电话键盘"
+					},
+					{
+						"id":"URL",
+						"value":"URL键盘"
+					},
+					{
+						"id":"ENG",
+						"value":"英文键盘"
+					},
+					{
+						"id":"DECIMAL",
+						"value":"数字与小数点键盘"
+					}
+				]
+			},
+			"DefaultValue":"ENG",
+			"Group":"",
+			"Type":"String",
+			"EditType":"1",
+			"Description":"输入类型，不设置这个属性的时候会使用系统默认键盘支持所有字符，可设置的值包括以下5种:\n\t\r\n\"ASC\" ：支持ASCII的默认键盘\n\r\n\"PHONENUMBER\" ：标准电话键盘，支持＋＊＃字符\n\r\n\"URL\" ：URL键盘，支持.com按钮 只支持URL字符\n\t\t\r\n\"ENG\" :英文键盘\r\n\"DECIMAL\" :数字与小数点键盘（仅支持iOS平台）",
+			"Deprecated":false,
+			"Type_JavaScript":"String",
+			"ID":"inputType",
+			"Name":"输入类型"
+		},
+		{
+			"Design":{
 				"Type":"UInteger",
 				"Data":[]
 			},

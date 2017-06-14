@@ -17,6 +17,7 @@ var text_name = ui("do_TextField_name");
 var text_key = ui("do_TextField_keyWord");
 var text_value = ui("do_TextField_valueWord");
 var text_remark = ui("do_TextBox_remark");
+var text_remark_num = ui('do_Label_remarknum');
 
 var canvas_name = ui("do_Canvas_name");
 var canvas_key = ui("do_Canvas_key");
@@ -66,6 +67,7 @@ if (pageData.type === 1) {
 	updataParam.id = pageData.data.id;
 	back_flage = false;
 	pageType = 1;
+	text_remark_num.text = text_remark.text.length + '/' + 100;
 }
 
 /**
@@ -82,6 +84,7 @@ text_value.on('textChanged', function () {
 })
 text_remark.on('textChanged', function () {
 	back_flage = true;
+	text_remark_num.text = text_remark.text.length + '/' + 100;
 })
 
 
