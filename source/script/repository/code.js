@@ -145,11 +145,15 @@ function searchCode(str) {
 	var dataObj = {};
 	var name = '%' + str + '%';
 	var array = main_data.querySync(codeSql.getSql().searchParam.sql, [name]);
+	var num = array.length;
 	if (array.length != 0) {
 		dataObj = dataTool.generateDataList(array);
 	}
 	hashData.addData(dataObj);
-	return hashData;
+	var data = {};
+	data.hashData = hashData;
+	data.num = num;
+	return data;
 }
 /**
  * 初始化dataList

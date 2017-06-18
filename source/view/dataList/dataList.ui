@@ -44,7 +44,7 @@
 						"height":"100"
 					},
 					{
-						"bgColor":"00000000",
+						"bgColor":"EEEEEEFF",
 						"templates":"source://view/template/listIndexTemplate.ui,source://view/template/listTemplate.ui",
 						"width":"720",
 						"y":"100",

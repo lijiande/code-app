@@ -12,8 +12,12 @@ var do_Label_version = ui("do_Label_version");
 var alayout_pwd = ui('do_ALayout_modipwd');
 var userName = ui('do_Label_userName');
 var do_Button_simLogin = ui('do_Button_simLogin');
+var canvas_1 = ui('do_Canvas_1');
+var canvas_2 = ui('do_Canvas_2');
 
 do_Label_version.text = '版本号:' + do_Global.getVersion().ver;
+canvas_1.defineLine({x:30,y:5},{x:690,y:5})
+canvas_2.defineLine({x:30,y:5},{x:690,y:5})
 flushPage();
 flushSimLogin();
 

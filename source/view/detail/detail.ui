@@ -205,8 +205,9 @@
 												"views":[
 													{
 														"hintColor":"5C5C5CFF",
-														"margin":"8,0,8,0",
-														"width":"620",
+														"margin":"8,8,8,8",
+														"width":"604",
+														"x":"8",
 														"y":"8",
 														"fontSize":"30",
 														"id":"do_TextBox_remark",

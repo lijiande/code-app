@@ -57,6 +57,10 @@ button_confirm.on('touch', function () {
 		common.toast('新密码不能为空');
 		return;
 	}
+	if (oldText === newText) {
+		common.toast('新密码不能与旧密码相同');
+		return;
+	}
 	if (newText != confirm) {
 		common.toast('两次密码不一致');
 		return;

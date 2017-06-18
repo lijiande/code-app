@@ -21,6 +21,11 @@ var icon_home = ui("do_IconFont_home");
 var icon_me = ui("do_IconFont_me");
 var icon_top = ui('do_IconFont_top');
 
+
+icon_home.iconCode = 'e702';
+icon_home.iconName = 'code_qn';
+icon_me.iconCode = 'e718';
+icon_me.iconName = 'code_qn';
 // 退出到开发页面
 do_Page.on("back", function (data) {
 	do_App.closePage({

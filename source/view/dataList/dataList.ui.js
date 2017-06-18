@@ -5,6 +5,7 @@
 var codeRep = require("repository/code");
 var constants = require("config/constants");
 var pageUi = require("ui");
+var common = require("util/common");
 pageUi.security();
 
 var nf = sm("do_Notification");
@@ -81,9 +82,11 @@ icon_search.on('touch', function () {
 })
 
 search_text.on('enter', function () {
-	hashData = codeRep.searchCode(search_text.text);
+	var data = codeRep.searchCode(search_text.text);
+	hashData = data.hashData;
 	do_index_dataList.bindItems(hashData, codeRep.getDataIndexList());
 	do_index_dataList.refreshData();
+	common.toast('搜到' + data.num + '条数据');
 })
 
 do_Page.on('pause', function () {

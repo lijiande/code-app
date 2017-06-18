@@ -96,7 +96,7 @@ text_remark.on('textChanged', function () {
 function saveNew(data) {
 	var result = dataSource.insertNew(data);
 	if (result) {
-		do_Notification.toast("保存成功");
+		common.toast("保存成功");
 		do_App.closePage({
 			data: {
 				type: 1
@@ -116,7 +116,7 @@ function saveNew(data) {
 function update(data) {
 	var result = dataSource.update(data);
 	if (result) {
-		do_Notification.toast("保存成功");
+		common.toast("保存成功");
 		do_App.closePage({
 			data: {
 				type: 1
@@ -178,7 +178,7 @@ icon_visible.on("touch", function () {
  */
 icon_save.on("touch", function () {
 	if (save_flage) {
-		do_Notification.toast('不能重复提交');
+		common.toast('不能重复提交');
 		return;
 	}
 	save_flage = true;
@@ -197,7 +197,7 @@ icon_save.on("touch", function () {
 	})
 	if (!value_flage) {
 		save_flage = false;
-		do_Notification.toast('数据不完整');
+		common.toast('数据不完整');
 		return;
 	}
 	if (pageType === 0) {
