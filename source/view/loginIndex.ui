@@ -7,9 +7,17 @@
 		"views":[
 			{
 				"width":"720",
+				"y":"40",
 				"id":"do_ViewShower_main",
 				"type":"do_ViewShower",
-				"height":"1280"
+				"height":"1240"
+			},
+			{
+				"bgColor":"3F51B5FF",
+				"width":"720",
+				"id":"do_ALayout_1",
+				"type":"do_ALayout",
+				"height":"40"
 			}
 		],
 		"height":"1280"

@@ -15,7 +15,7 @@
 						"textAlign":"center",
 						"x":"200",
 						"width":"320",
-						"y":"23",
+						"y":"63",
 						"fontSize":"40",
 						"id":"do_Label_title",
 						"text":"修 改 密 码",
@@ -28,7 +28,7 @@
 						"x":"15",
 						"width":"74",
 						"iconColor":"FFFFFFFF",
-						"y":"23",
+						"y":"63",
 						"iconSize":"55",
 						"iconCode":"e722",
 						"id":"do_IconFont_back",
@@ -36,17 +36,17 @@
 						"height":"74"
 					}
 				],
-				"height":"100"
+				"height":"140"
 			},
 			{
-				"x":"66",
-				"width":"600",
-				"y":"179",
+				"x":"120",
+				"width":"-1",
+				"y":"250",
 				"id":"do_LinearLayout_3",
 				"type":"do_LinearLayout",
 				"views":[
 					{
-						"width":"489",
+						"width":"-1",
 						"id":"do_LinearLayout_1",
 						"type":"do_LinearLayout",
 						"views":[
@@ -55,24 +55,37 @@
 								"fontSize":"30",
 								"id":"do_Label_2",
 								"text":"旧密码",
-								"type":"do_Label"
+								"type":"do_Label",
+								"height":"40"
 							},
 							{
 								"password":"true",
-								"x":"100",
-								"width":"340",
+								"margin":"0,0,0,30",
+								"x":"130",
+								"width":"350",
 								"fontSize":"30",
-								"id":"do_TextField_1",
+								"id":"do_TextField_old",
 								"type":"do_TextField",
-								"clearAll":"true"
+								"clearAll":"true",
+								"maxLength":"15",
+								"height":"40"
 							}
 						],
-						"height":"120",
-						"direction":"horizontal"
+						"direction":"horizontal",
+						"height":"40"
 					},
 					{
-						"width":"543",
-						"y":"120",
+						"margin":"0,0,0,130",
+						"width":"350",
+						"x":"130",
+						"y":"40",
+						"id":"do_Canvas_old",
+						"type":"do_Canvas",
+						"height":"60"
+					},
+					{
+						"width":"-1",
+						"y":"100",
 						"id":"do_LinearLayout_2",
 						"type":"do_LinearLayout",
 						"views":[
@@ -81,25 +94,38 @@
 								"fontSize":"30",
 								"id":"do_Label_3",
 								"text":"新密码",
-								"type":"do_Label"
+								"type":"do_Label",
+								"height":"40"
 							},
 							{
 								"password":"true",
-								"x":"100",
-								"width":"340",
+								"margin":"0,0,0,30",
+								"x":"130",
+								"width":"350",
 								"fontSize":"30",
-								"id":"do_TextField_2",
+								"id":"do_TextField_new",
 								"type":"do_TextField",
 								"clearAll":"true",
-								"enterText":"next"
+								"enterText":"next",
+								"maxLength":"15",
+								"height":"40"
 							}
 						],
-						"height":"120",
-						"direction":"horizontal"
+						"direction":"horizontal",
+						"height":"40"
 					},
 					{
-						"width":"541",
-						"y":"240",
+						"margin":"0,0,0,130",
+						"width":"350",
+						"x":"130",
+						"y":"140",
+						"id":"do_Canvas_new",
+						"type":"do_Canvas",
+						"height":"60"
+					},
+					{
+						"width":"-1",
+						"y":"200",
 						"id":"do_LinearLayout_4",
 						"type":"do_LinearLayout",
 						"views":[
@@ -108,24 +134,51 @@
 								"fontSize":"30",
 								"id":"do_Label_4",
 								"text":"确 认",
-								"type":"do_Label"
+								"type":"do_Label",
+								"height":"40"
 							},
 							{
 								"password":"true",
-								"x":"100",
-								"width":"344",
+								"margin":"0,0,0,30",
+								"x":"130",
+								"width":"350",
 								"fontSize":"30",
-								"id":"do_TextField_3",
+								"id":"do_TextField_confirm",
 								"type":"do_TextField",
 								"enterText":"next",
-								"clearAll":"true"
+								"clearAll":"true",
+								"maxLength":"15",
+								"height":"40"
 							}
 						],
-						"height":"120",
-						"direction":"horizontal"
+						"direction":"horizontal",
+						"height":"40"
+					},
+					{
+						"margin":"0,0,0,130",
+						"width":"350",
+						"x":"130",
+						"y":"240",
+						"id":"do_Canvas_confirm",
+						"type":"do_Canvas",
+						"height":"60"
+					},
+					{
+						"border":"3F51B5FF,1,[7,7,7,7]",
+						"margin":"0,0,0,90",
+						"bgColor":"3F51B5FF",
+						"width":"300",
+						"x":"90",
+						"y":"300",
+						"fontSize":"30",
+						"id":"do_Button_confirm",
+						"text":"确认修改",
+						"type":"do_Button",
+						"fontStyle":"bold",
+						"fontColor":"FFFFFFFF"
 					}
 				],
-				"height":"468"
+				"height":"500"
 			}
 		],
 		"height":"1280"

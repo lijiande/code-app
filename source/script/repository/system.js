@@ -9,14 +9,22 @@ var do_DataCache = d.sm("do_DataCache");
 module.exports.initCodeTable = initCodeTable;
 // 检查当前是否有用户缓存
 module.exports.checkUserCache = checkUserCache;
+
 // 保存用户
 module.exports.saveUser = saveUser;
 // 登陆验证
 module.exports.checkUser = checkUser;
+// 修改密码
+module.exports.changePwd = changePwd;
+// 获取基本信息
+module.exports.getUserInformation = getUserInformation;
+// 修改头像
+module.exports.setUserIcon = setUserIcon;
 
 // 是否开启简单登陆-简单登陆密码验证
 module.exports.getOpenSimLogin = getOpenSimLogin;
 module.exports.checkSimPwd = checkSimPwd;
+module.exports.simLoginSwatch = simLoginSwatch;
 
 // 系统重置
 module.exports.sysReset = sysReset;
@@ -253,4 +261,73 @@ function checkSimPwd(str) {
         obj.type = 1;
     }
     return obj;
+}
+
+/**
+ * 修改密码
+ * @param {*} old 
+ * @param {*} newPwd 
+ */
+function changePwd(old, newPwd) {
+    if (!newPwd) {
+        common.toast('新密码不能为空');
+        return false;
+    }
+    var user = do_DataCache.loadData('user');
+    if (!user) {
+        return false;
+    }
+    if (user.userPassword != old) {
+        common.toast('原密码错误');
+        return false;
+    }
+    user.userPassword = newPwd;
+    user.simPwd = newPwd;
+    do_DataCache.saveData('user', user);
+    common.toast('密码修改成功');
+    return true;
+}
+
+/**
+ * 简单登陆开关
+ */
+function simLoginSwatch() {
+    var user = do_DataCache.loadData('user');
+    if (user.simSwatch) {
+        user.simSwatch = false;
+        common.toast('已关闭');
+    } else {
+        user.simSwatch = true;
+        common.toast('已开启');
+    }
+    do_DataCache.saveData('user', user);
+    return true;
+}
+
+/**
+ * 获取用户基本信息
+ */
+function getUserInformation() {
+    var user = do_DataCache.loadData('user');
+    if (!user) {
+        return;
+    }
+    var data = {};
+    data.userName = user.userName;
+    data.icon = user.icon;
+    return data;
+}
+
+/**
+ * 设置用户头像
+ * @param {*} str 
+ */
+function setUserIcon(str) {
+    if (!str) {
+        return;
+    }
+    var user = do_DataCache.loadData('user');
+    user.icon = str;
+    do_DataCache.saveData('user', user);
+    return;
 }

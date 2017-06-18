@@ -27,14 +27,14 @@
 			},
 			{
 				"width":"720",
-				"y":"308",
+				"y":"600",
 				"id":"do_ALayout_3",
 				"type":"do_ALayout",
 				"views":[
 					{
-						"width":"600",
-						"x":"100",
-						"fontSize":"50",
+						"width":"290",
+						"x":"110",
+						"fontSize":"30",
 						"id":"do_Label_1",
 						"text":"关于",
 						"type":"do_Label",
@@ -43,6 +43,7 @@
 					{
 						"iconName":"code_qn",
 						"width":"90",
+						"x":"10",
 						"iconSize":"55",
 						"iconCode":"e71d",
 						"id":"do_IconFont_1",
@@ -50,8 +51,7 @@
 						"height":"90"
 					},
 					{
-						"textAlign":"center",
-						"x":"315",
+						"x":"430",
 						"width":"256",
 						"fontSize":"30",
 						"id":"do_Label_version",
@@ -63,15 +63,15 @@
 			},
 			{
 				"width":"720",
-				"y":"196",
+				"y":"500",
 				"id":"do_ALayout_modipwd",
 				"type":"do_ALayout",
 				"views":[
 					{
-						"x":"100",
-						"width":"600",
-						"fontSize":"50",
-						"id":"do_Label_3",
+						"x":"110",
+						"width":"400",
+						"fontSize":"30",
+						"id":"do_Label_changePwd",
 						"text":"修改密码",
 						"type":"do_Label",
 						"height":"90"
@@ -79,10 +79,75 @@
 					{
 						"iconName":"code_qn",
 						"width":"90",
+						"x":"10",
 						"iconSize":"55",
 						"iconCode":"e709",
 						"id":"do_IconFont_2",
 						"type":"do_IconFont",
+						"height":"90"
+					}
+				],
+				"height":"90"
+			},
+			{
+				"width":"720",
+				"y":"200",
+				"id":"do_ALayout_4",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"border":"00000000,0,[5,5,5,5]",
+						"width":"150",
+						"x":"40",
+						"y":"5",
+						"id":"do_ImageView",
+						"source":"source://image/123.jpg",
+						"type":"do_ImageView",
+						"enabled":"true",
+						"height":"150"
+					},
+					{
+						"x":"250",
+						"width":"352",
+						"y":"40",
+						"fontSize":"30",
+						"id":"do_Label_userName",
+						"type":"do_Label"
+					}
+				],
+				"height":"160"
+			},
+			{
+				"width":"720",
+				"y":"400",
+				"id":"do_ALayout_5",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"iconName":"code_qn",
+						"x":"10",
+						"width":"90",
+						"iconSize":"55",
+						"iconCode":"e74f",
+						"id":"do_IconFont_3",
+						"type":"do_IconFont",
+						"height":"90"
+					},
+					{
+						"x":"110",
+						"width":"290",
+						"fontSize":"30",
+						"id":"do_Label_5",
+						"text":"快速解锁",
+						"type":"do_Label",
+						"height":"90"
+					},
+					{
+						"x":"400",
+						"width":"180",
+						"fontSize":"30",
+						"id":"do_Button_simLogin",
+						"type":"do_Button",
 						"height":"90"
 					}
 				],

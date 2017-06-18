@@ -14,10 +14,11 @@
 				"bgColor":"00000000",
 				"x":"235",
 				"width":"250",
-				"y":"580",
+				"y":"540",
 				"fontSize":"30",
 				"id":"password",
 				"enterText":"go",
+				"maxLength":"15",
 				"height":"40"
 			},
 			{
@@ -25,22 +26,23 @@
 				"bgColor":"3F51B5FF",
 				"x":"210",
 				"width":"300",
-				"y":"667",
+				"y":"627",
 				"fontSize":"30",
 				"id":"confirm",
 				"text":"OK",
-				"type":"do_Button"
+				"type":"do_Button",
+				"fontStyle":"bold",
+				"fontColor":"FFFFFFFF"
 			},
 			{
-				"textAlign":"center",
-				"x":"210",
-				"width":"300",
-				"y":"340",
-				"fontSize":"30",
-				"id":"do_Label_1",
-				"text":"Welcome",
-				"type":"do_Label",
-				"fontColor":"0000FFFF"
+				"border":"00000000,0,[5,5,5,5]",
+				"x":"285",
+				"width":"150",
+				"y":"312",
+				"id":"do_ImageView",
+				"source":"source://image/123.jpg",
+				"type":"do_ImageView",
+				"height":"150"
 			}
 		],
 		"height":"1280"

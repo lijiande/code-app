@@ -8,6 +8,7 @@ app.on("loaded", function () {
 	app.openPage({
 		source: "source://view/loginIndex.ui",
 		statusBarState: "transparent",
-		animationType: "fade"
+		animationType: "fade",
+		statusBarFgColor: "black"
 	});
 });

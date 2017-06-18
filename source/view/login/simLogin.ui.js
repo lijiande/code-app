@@ -12,6 +12,20 @@ var do_App = sm("do_App");
 
 var confirm = ui("confirm");
 var password = ui("password");
+var do_ImageView = ui('do_ImageView');
+
+getIcon();
+
+function getIcon() {
+	var data = sysRep.getUserInformation();
+	if (!data) {
+		return;
+	}
+	if (data.icon) {
+		do_ImageView.source = data.icon;
+	}
+}
+
 
 function login() {
 	var text = password.text;

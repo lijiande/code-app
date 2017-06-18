@@ -7,7 +7,7 @@
 		"views":[
 			{
 				"width":"720",
-				"y":"350",
+				"y":"310",
 				"id":"do_ALayout_input",
 				"type":"do_ALayout",
 				"views":[
