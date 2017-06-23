@@ -118,9 +118,9 @@
 					"Name":"传递给页面的数据"
 				},
 				{
-					"DefaultValue":"slide_l2r",
+					"DefaultValue":"slide_r2l",
 					"Type":"String",
-					"Description":"winphone8不支持该动画效果，android和ios支持。目前支持以下几种：\r\n'slide_l2r': 从左至右滑出\r\n'slide_r2l': 从右至左滑出\r\n'slide_b2t': 从底至上滑出\r\n'slide_t2b': 从上至底滑出\r\n'push_l2r': 从左至右推出\r\n'push_r2l': 从右至左推出\r\n'push_b2t': 从底至上推出\r\n'push_t2b': 从上至底推出\r\n'fade' : 淡入淡出\r\n'page_curl' : 上翻页\r\n'page_uncurl' : 下翻页\r\n'cube' :立体翻转\r\n'slide_l2r_1'：从左至右滑出（旧页淡出效果）\r\n'slide_r2l_1'：从右至左滑出（旧页淡出效果）\r\n'push_l2r_1': 从左至右推出（旧页被遮盖）\r\n'push_r2l_1': 从右至左推出（旧页被遮盖）",
+					"Description":"winphone8不支持该动画效果，android和ios支持。目前支持以下几种：\n'slide_l2r': 从左至右滑出\n'slide_r2l': 从右至左滑出\n'slide_b2t': 从底至上滑出\n'slide_t2b': 从上至底滑出\n'push_l2r': 从左至右推出\n'push_r2l': 从右至左推出\n'push_b2t': 从底至上推出\n'push_t2b': 从上至底推出\n'fade' : 淡入淡出\n'page_curl' : 上翻页\n'page_uncurl' : 下翻页\n'cube' :立体翻转\n'slide_l2r_1'：从左至右滑出（旧页淡出效果）\n'slide_r2l_1'：从右至左滑出（旧页淡出效果）\n'push_l2r_1': 从左至右推出（旧页被遮盖）\n'push_r2l_1': 从右至左推出（旧页被遮盖）",
 					"Required":0,
 					"Deprecated":false,
 					"Type_JavaScript":"String",

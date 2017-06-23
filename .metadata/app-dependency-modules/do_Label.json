@@ -131,7 +131,7 @@
 			"Group":"",
 			"Type":"Number",
 			"EditType":"0",
-			"Description":"label的width为\"－1\"的时候，label会根据text内容自动适配变宽，但是不会宽于maxWidth",
+			"Description":"label的width为-1的时候，label会根据text内容自动适配变宽，但是不会宽于maxWidth",
 			"Deprecated":false,
 			"Type_JavaScript":"Number",
 			"ID":"maxWidth",
