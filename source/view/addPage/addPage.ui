@@ -91,7 +91,7 @@
 												"type":"do_TextField",
 												"clearAll":"true",
 												"enterText":"next",
-												"maxLength":"20",
+												"maxLength":"30",
 												"height":"35"
 											},
 											{
@@ -120,7 +120,7 @@
 												"id":"do_TextField_keyWord",
 												"type":"do_TextField",
 												"clearAll":"true",
-												"maxLength":"20",
+												"maxLength":"30",
 												"height":"35"
 											},
 											{
@@ -160,7 +160,7 @@
 																"id":"do_TextField_valueWord",
 																"type":"do_TextField",
 																"clearAll":"true",
-																"maxLength":"20",
+																"maxLength":"30",
 																"height":"35"
 															},
 															{

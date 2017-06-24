@@ -90,7 +90,7 @@
 												"type":"do_TextField",
 												"enabled":"false",
 												"enterText":"next",
-												"maxLength":"10",
+												"maxLength":"30",
 												"height":"35"
 											},
 											{
@@ -117,7 +117,7 @@
 												"fontSize":"30",
 												"id":"do_TextField_keyWord",
 												"type":"do_TextField",
-												"maxLength":"20",
+												"maxLength":"30",
 												"enabled":"false",
 												"height":"35"
 											},
@@ -156,7 +156,7 @@
 																"fontSize":"30",
 																"id":"do_TextField_valueWord",
 																"type":"do_TextField",
-																"maxLength":"20",
+																"maxLength":"30",
 																"enabled":"false",
 																"height":"35"
 															},
