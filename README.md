@@ -1,2 +1,2 @@
-# code-app
-for code
+# pinecone
+This is an app for managing personal accounts.
